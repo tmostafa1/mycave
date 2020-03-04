@@ -1,0 +1,22 @@
+
+#Exercise15
+def my_stg(sen):
+    sen1=sen.split() #slpitting the input string and making it a list
+    
+    fdist=nltk.FreqDist(w.lower() for w in sen1) #make a frequency distribution of the lower case list
+    for key in sorted (fdist.keys()): #for every key in the sorted dictionary keys
+        print (key, fdist[key]) #print the keys and their frequency distributions
+        
+sen='I love you and love her and love them'
+my_stg(sen) 
+#exercise 14
+#nltk14 (did not work)
+def novel10(text): 
+    text1=text.read() #read the input text
+    text1=text1.strip().lower().split() #remove white space, make lower case, and turn into a list and assign to a variable
+    splitIndex=len(text1)/10 #divide the length by 10
+    for w in text1[-splitIndex:]: #for word in last 10% of text1
+        if w not in text1[:-splitIndex]: #if word not in the remainder of text1
+            print[w]#print word
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
+novel10(text)
