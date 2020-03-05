@@ -326,6 +326,19 @@ def nGram (sol):
 
 sol= 'I want to want to love you'
 nGram (sol)
+
+##From nltk book_chapter#4 #3_Another solution#did not get the output
+def nGram(sol):
+    sol1=sol.read() #read the text
+    sol1=sol1.lower().split() #turn the text into a list
+    n=2
+    for i in range(len(sol1)-n+1):
+        return sol1[i:i+n]
+sol=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
+nGram(sol)     
+
+    
+
     
 
         
