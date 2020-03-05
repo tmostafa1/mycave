@@ -20,3 +20,28 @@ def novel10(text):
             print[w]#print word
 text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
 novel10(text)
+
+#chapter4#exercise17
+def shorten(text, n):
+    text1=text.read() #reading the text file
+    text1=text1.strip().lower().split() #turning the text into a lower case list
+    fdist=FreqDist(text1) #creating a distionary of freq. distribution
+    pro_text1= [] #creating an empty list
+    ab=fdist.most_common(n) #creating a variable with most common n-words 
+    pro_text1.append(ab) #appending the variable of most common n-words to the empty list
+    for w in text1: #for every word in the list
+        if w in pro_text1: #if that word is in the pro_text1 
+            text1.remove(w) #remove that word from the list
+    text2=' '.join(text1) #converting the list to a string
+    return text2 #return the string
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r') 
+shorten(text, 10)  
+
+#chapter4#exercise21
+def my_tex(text, vocabulary):
+    return(set(text).difference(set(vocabulary)))
+
+text=['i', 'love', 'you', 'but', 'i', 'donot', 'know']
+vocabulary=['i', 'love']
+my_tex(text, vocabulary)
+
