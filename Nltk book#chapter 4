@@ -45,3 +45,24 @@ text=['i', 'love', 'you', 'but', 'i', 'donot', 'know']
 vocabulary=['i', 'love']
 my_tex(text, vocabulary)
 
+
+##From nltk book_chapter#4#Exercise 31#part 1
+import textwrap
+def process(my_text):
+    wrapper= textwrap.TextWrapper(width=50) #specify the max width of each line and assign that to a variable
+    processed_text=wrapper.wrap(text=my_text) #use the wrap method to break the input text(which is an argument in the wrap method) into lines of specified max width
+    print(processed_text)
+##From nltk book_chapter#4#Exercise 31#part 2
+def process(my_text):
+    wrapper= textwrap.TextWrapper(width=50) #specify the max width of each line and assign that to a variable
+    proc_text=wrapper.wrap(text=my_text) #use the wrap method to break the input text(which is an argument in the wrap method) into lines of specified max width
+    proc_text1=' '.join(proc_text) 
+    for word in proc_text1: #for every word in the processed text
+        string_length=(len(word)-1)+10 #specify the required space after each word(except the last one) and assign it to a variable
+        proc_text2=proc_text1.rjust(string_length) #call the rjust method (with the specified length as the argument) on the modified text and assign it to a new variable
+    print(proc_text2) #print the processed text
+
+my_text= 'I think live in an area where many people come from other countries is better. My reasons could be because you can have more friends from other countries that means even- even though it is Americans or just people come from other parts of the world. I think could be really productive. Actually you have the possibility to um, visit their countries as well. Sometimes if you get really good relationship with them, going to let you stay in your house, in in their house or over there in their countries. Okay, what else? I think learn more language. So when it is a community- when Taste new food, or new drinks, new tastes, new flavors, things like that'       
+process(my_text)
+
+
