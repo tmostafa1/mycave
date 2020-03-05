@@ -271,6 +271,61 @@ fdist1=FreqDist(text) #turn it into a dictionary
 for item in fdist1.items():
     if item.startswith('a'):
         print (item, value)
+
+        
+##From nltk book_chapter#4#  1
+lines=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
+def len_wor (lines):
+    lines1=lines.read() #read the text file
+    lines1=lines1.lower().split() #spliting the text into a list
+    word=0 # specifying the baseline of word as 0
+    total=0 #specifying the baseline of token as 0
+    for token in lines1: #for every word int he list
+        word+=1 #count the total number of words
+        total += len(token) #count the total lengths of tokens
+    print(total/word) #divide the length of tokens by the number of tokens and print it
+len_wor(lines)   
+
+##From nltk book_chapter#4# 2
+def long_wor(tex):
+    
+    text1=tex.lower().split() #turning the text into a list
+    longest= ' ' #defining an empty string
+    for word in text1: #for every word in text
+        if len(word)> len(longest): #if length of that word is greater than the empty string
+            longest=word #word will be equal to the empty string
+    print(longest) #print the longest word
+tex='my name is julian and I am thirty seven years old'
+long_wor(tex)
+##From nltk book_chapter#4 #3 #the code worked but did not append anything
+from nltk.util import ngrams
+def nGram (sol):
+    
+    sol1=sol.lower().split() #turn the text into a list
+    soln=[]    #create an empty list
+    ngram1=list(ngrams(sol1, 2)) #create a list of ngrams)
+    for i in range(len(ngram1)): #for every item in the ngram list
+        if i==i+1: #if two successive items are the same
+            soln.append(i) #append that item to the empty list
+    print(soln) #print the list
+
+sol= 'I want to want to love you'
+nGram (sol)
+
+##From nltk book_chapter#4 #3 #the code worked but did not append anything
+from nltk.util import ngrams
+def nGram (sol):
+    sol1=sol.read()
+    sol1=sol1.lower().split() #turn the text into a list
+    soln=[]    #create an empty list
+    ngram1=list(ngrams(sol1, 2)) #create a list of ngrams)
+    for i in range(len(ngram1)): #for every item in the ngram list
+        if i==i+1: #if two successive items are the same
+            soln.append(i) #append that item to the empty list
+    print(soln) #print the list
+
+sol= 'I want to want to love you'
+nGram (sol)
     
 
         
