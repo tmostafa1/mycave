@@ -1,0 +1,72 @@
+#nltk_chapter3#exercise1
+s= 'colorless'
+print(s[:4]+'u'+s[4:])
+
+#nltk_chapter3#exercise2
+#dish-es, run-ning, nation-ality, un-do, pre-heat
+s1='dishes'
+print(s1[:4])
+s2='running'
+print(s2[:3])
+s3='nationality'
+print(s3[:6])
+
+#nltk_chapter3#exercise8
+def my_url(url1):
+    from urllib import request #import request
+    raw=request.urlopen(url1) #request to open the url and asign it to a variable
+    raw1=raw.read().decode('utf8') #read the url and decode it
+    from bs4 import BeautifulSoup #import beautifulsoup to parse the html markers
+    raw2=BeautifulSoup(raw1).get_text() #parse html markers and get text
+    
+    print(raw2)
+
+url1='http://www.nltk.org/'
+my_url(url1)
+
+#nltk_chapter3#exercise10
+sent=['i', 'hate', 'that', 'guy']
+new_sent=[(w, len(w)) for w in sent]
+print(new_sent)
+
+#nltk book chapter3#exercise11
+ raw='i love you'
+ raw1=raw.split('o')
+ raw1
+ 
+#nltk book chapter3#exercise12
+ 
+ def prac(word):
+     for i in word:
+         print (i, '\n')
+
+#nltk book chapter3#exercise14
+words=['i', 'love', 'you', 'i', 'me']
+words.sort()
+words
+
+words1=sorted(words)
+words1
+
+#nltk book chapter3#exercise18
+tex1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
+def pro_tex(tex1):
+    tex2=tex1.read()#read the open text
+    tex2=tex2.strip().lower().split()#turn the text into a list
+    tex3=[] #create a new list
+    for w in tex2: #for w in tex2
+        if w.startswith('wh'): #set the if condition 
+            tex3.append(w) #append words to the new list
+    print(tex3) #print the list
+tex1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
+pro_tex(tex1)        
+
+#nltk book chapter 3 exercise 18
+tex1=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Python_practice\\trial.txt', 'r')
+tex2=tex1.readlines() #read the open text in line
+tex3=[line.split() for line in tex2] #create a new text by splitting each line and making it a list
+tex4=[[str(item[0]), int(item[-1])] for item in tex3]#specify that for each item in the list, the fist element will be a string and the second element, an integer
+print(tex4)#print the new text
+
+
+prac('rabbit')
