@@ -61,7 +61,7 @@ def pro_tex(tex1):
 tex1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
 pro_tex(tex1)        
 
-#nltk book chapter 3 exercise 18
+#nltk book chapter 3 exercise 19
 tex1=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Python_practice\\trial.txt', 'r')
 tex2=tex1.readlines() #read the open text in line
 tex3=[line.split() for line in tex2] #create a new text by splitting each line and making it a list
@@ -69,4 +69,95 @@ tex4=[[str(item[0]), int(item[-1])] for item in tex3]#specify that for each item
 print(tex4)#print the new text
 
 
-prac('rabbit')
+
+##nltk book chapter 3 #exercise 21_matched the solution but didn't run
+def unknown(url):
+    import nltk
+    from urllib import request
+    
+    import re
+    raw=request.urlopen(url) #open the url
+    raw1=raw.read().decode('utf8') #read and decode it
+    
+    my_soup_raw=re.findall(r'[\s\(\[\{]([a-z]+)', raw1)#using regex, extract all substrings of lower case letters 
+    my_soup= list(my_soup_raw) #make a list of the extracted text and assign that to a variable
+    ref_lis=nltk.corpus.words.words() #open the word corpus url
+    print(item for item in my_soup if item not in ref_lis)
+    
+#nltk book#chapter 3#number 31
+saying=['After', 'all', 'is', 'said', 'and', 'done', ',', 'more', 'is', 'said', 'than', 'done', '.']     
+lengths=[]
+for item in saying:
+    lengths.append(len(item))
+print(lengths)
+
+#nltk book#chapter 3#number 32
+silly='newly formed bland ideas are inexpressible in an infuriating way' 
+#32_a
+bland=silly.split()
+bland
+#32_b
+bland1=[]#create an empty list
+for i in bland: #for every item in the first list
+    bland1.append(i[1]) #append the second character of the item to the new list
+stri1=''.join(bland1) #join the new list to a string
+print(stri1) #print the string
+
+#32_c
+back_to=' '.join(bland)  
+back_to    
+
+#32_d
+sor=sorted(bland)
+print(*sor, sep='\n')
+
+#nltk book#chapter 3#number 33
+#a
+'inexpressible'.index('re')
+#returns the index of the first element
+#b
+words=['i', 'love', 'you']
+words.index('love')
+#c
+silly='newly formed bland ideas are inexpressible in an infuriating way' 
+bland=silly.split() #make the string into a list
+bland.index('in')  #find our the index of the the word 'in'
+phrase=bland[:6] #use list slicing to create a new list upto 'in'
+final=' '.join(phrase) #convert the list to a string
+final
+#an alternative of the above
+bland[:bland.index('in')]
+
+#nltk book#chapter 3#number 27
+from random import choice
+def expression():
+    raph=' '.join(random.choice('aehh') for x in range(200))
+    raph1=raph.split()
+    fin=' '.join(raph1)
+    return fin
+expression()
+
+#nltk book#chapter 3#number 34
+def convertNationality(word):
+    if word.endswith('ian'): #if the input word ends with 'ian'
+        return word[:-3]+'a'
+print convertNationality('Canadinan')
+
+##nltk book#chapter 3#number 29_revised
+def ari(category):  
+    word=nltk.corpus.brown.words() (categories=category)
+    uw=sum(len(w)for w in word)\len(word)
+    return 4.71*uw+0.5*us-21.43
+print ari('lore)
+
+###nltk book#chapter3#number_41
+#list comprehension
+import re
+words = ['attribution', 'confabulation', 'elocution',
+        'sequoia', 'tenacious', 'unidirectional']
+vsequences=set([''.join(re.findall(r'[aeiou]', word)) for word in words])
+sorted(vsequences)
+
+
+
+   
