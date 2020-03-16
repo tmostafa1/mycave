@@ -1,0 +1,15 @@
+Using a text editor of your choice (see text editor lists in the 'Further resources' section), use regular expressions to perform the following tasks on the Project Gutenberg version of Defoe’s A Journal of the Plague Year:
+
+Find all instances of the word bridge.
+Solution:
+def find_bridge(text):
+    text=text.read() #read the text
+    for word in text: #iterate through each word in the text
+        match=re.search(r'\sbridge\s', word)  #specify the pattern to be searched as an object of the search function
+    if match: # if a match of the pattern is found
+        print (match.group(0)) #print the entire match
+    else: #otherwise
+        print('didnot find') #print didn't find
+    
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+find_bridge(text)  #function call
