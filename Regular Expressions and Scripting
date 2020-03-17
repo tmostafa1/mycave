@@ -13,4 +13,25 @@ Output:
 ['bridge', 'bridge', 'bridge', 'bridge']
 
 Question2
+#regex practice from exercise book#2#did not produce the expected output
+Question: Find all instances of a London ward being mentioned
+def London_ward(text1):
+    text1=text1.read()
+    pattern=re.compile('[a-zA-Z]+ ward ')
+    print(pattern.findall(text1))
+
+text1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+London_ward(text1)  
+Output:
+[]
+Question3
+ #regex practice from exercise book#3 Clarkenwell Clerkenwell
+ def spelling_var(text2):
+     text2=text2.read()
+     pattern2=re.compile('Cl[ae]rkenwell')
+     print(pattern2.findall(text2))
+text2=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+spelling_var(text2)  
+#output:
+['Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell']
 
