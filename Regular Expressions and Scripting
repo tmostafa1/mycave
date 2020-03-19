@@ -146,4 +146,18 @@ split(p)
 6578
 656
 790
+
+####[from https://www.hackerrank.com/challenges/re-split/problem] 
+##Task: You are given a string m.
+##Your task is to find the first occurrence of an alphanumeric character in m (read from left to right) that has consecutive repetitions.
+def my_group(m): #define the function
+    match=re.search(r'([a-zA-Z0-9])\1+', m) #specify the pattern to be matched in the string. re.search will search for the pattern in the whole string
+    if match:
+        print(match.group(1))
+    else:
+        print('-1')
+m='..23aa8567aa4456a'
+my_group(m)
+##output:
+a
          
