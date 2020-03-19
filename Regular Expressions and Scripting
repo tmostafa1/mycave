@@ -65,3 +65,52 @@ paragraph(text)
 '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
 '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
 '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ']
+
+#regex practice from exercise book#6
+#Question: Remove all of the paragraph break characters in the text which do not actually signify the beginning of a new paragraph (that is, which are only used to restrict line length for visual display) 
+def paragraph1(text1): #this function will identify the real paragraphs with a symbol, @@@@
+    text1=text1.read() #read the text
+    pattern1= re.compile('\n\n\ ')  #specify the pattern object to be found     
+    pattern2=re.sub(pattern1, '@@@@', text1)   #substitute the pattern with '@@@@'
+    print (pattern2)
+ 
+text1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+paragraph1(text1)   
+
+##Task: You are given a string . It consists of alphanumeric characters, spaces and symbols(+,-).
+#Your task is to find all the substrings of that string that contains 2 or more vowels.
+
+def find_substring (s):
+    sub_pattern=re.compile('[aeiouAEIOU]+') #specify the pattern object with re.compile
+    pattern=sub_pattern.findall(s) #find that subpattern in the string
+    print(pattern)
+s='123aefgour67'
+find_substring (s)
+
+#Output: 
+ find_substring (s)
+['ae', 'ou']
+
+####Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+,-).
+#Your task is to find all the substrings of that string that contains 2 or more vowels.
+#Also, these substrings must lie in between 2 consonants and should contain vowels only.
+def find_substring (s):
+    sub_pattern=re.compile('[^aeiouAEIOU]{2}[aeiouAEIOU]+[^aeiouAEIOU]{2}') #specify the pattern object with re.compile
+    pattern=sub_pattern.findall(s) #find that subpattern in the string
+    print(pattern)
+s='123fgaefgdnourt67'
+find_substring (s)
+#output:
+ find_substring (s)
+['fgaefg', 'dnourt']
+
+
+def remove_par(text2): #this function will replace the regular line breaks (not the paragraph breaks) with empty spaces
+    text2=text2.read() #read the text
+    pattern3=re.compile('\n ') #specify the pattern to be found
+    pattern4=re.sub(pattern3, ' ', text2) #substitute that pattern with an empty space
+    print(pattern4)
+
+text2=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+remove_par(text2)      
+         
