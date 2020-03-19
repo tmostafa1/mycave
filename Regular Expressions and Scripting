@@ -35,3 +35,33 @@ spelling_var(text2)
 #output:
 ['Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell']
 
+
+ #regex practice from exercise book#4
+# Question: Change all instances of the former spelling into the latter spelling
+ def change_spell(text3):
+     text3=text3.read()
+     pattern3=re.sub('Clarkenwell', 'Clerkenwell', text3)
+     return pattern3
+text3=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+change_spell(text3)  
+Output:
+The whole text
+
+#regex practice from exercise book#5
+#question: How many paragraphs does Defoe begin with ‘I’?
+def paragraph(text):
+    text=text.read() #read the text
+    pattern1=re.findall(r'\n\nI ', text) #find the pattern in the text and assign that to a variable
+    print(pattern1) #print the variable
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
+paragraph(text)
+
+#Output: #101
+#['\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
+'\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ']
