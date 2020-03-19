@@ -112,5 +112,19 @@ def remove_par(text2): #this function will replace the regular line breaks (not 
     print(pattern4)
 
 text2=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Gutenberg.txt', 'r')
-remove_par(text2)      
+remove_par(text2)    
+
+####Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+,-).
+#Your task is to find all the substrings of that string that contains 2 or more vowels.
+#Also, these substrings must lie in between 2 consonants and should contain vowels only.
+def find_substring (s):
+    sub_pattern=re.compile('(?<=[^aeiouAEIOU]{2})[aeiouAEIOU]+(?=[^aeiouAEIOU]{2})') #specify the pattern object with re.compile.#added lookahead and lookbehind to make the function to include consonants before and after but not to include it in the output
+    pattern=sub_pattern.findall(s) #find that subpattern in the string
+    print(pattern)
+s='123gaooefgdnoaieurt67'
+find_substring (s)
+#output:
+find_substring (s)
+['aooe', 'oaieu']
+
          
