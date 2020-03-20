@@ -1,0 +1,16 @@
+##Program to Find the Most Frequent Noun Tags in a text ##chapter 5#NLTK book
+from nltk.probability import ConditionalFreqDist
+from nltk import word_tokenize, pos_tag
+def mostFreq(tag_prefix, text):
+    text1=text.read()
+    text1=text1.strip().lower()
+    text2=word_tokenize (text1)
+    text2=pos_tag(text2)
+    cfd=ConditionalFreqDist((tag, word) for (word, tag) in text2 if tag.startswith(tag_prefix))
+    for tag in cfd.conditions():
+        return dict(cfd[tag].most_common(5))
+
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
+mostFreq('NN', text)    
+##Output
+{'complex': 9, 'apartment': 8, 'house': 7, 'thing': 4, 'everything': 3}
