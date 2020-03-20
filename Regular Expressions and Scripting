@@ -1,4 +1,5 @@
-Question1#Using a text editor of your choice (see text editor lists in the 'Further resources' section), use regular expressions to perform the following tasks on the Project Gutenberg version of Defoe’s A Journal of the Plague Year:
+#from https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
+#Question1#Using a text editor of your choice (see text editor lists in the 'Further resources' section), use regular expressions to perform the following tasks on the Project Gutenberg version of Defoe’s A Journal of the Plague Year:
 
 Find all instances of the word bridge.
 Solution:
@@ -12,7 +13,7 @@ find_bridge(text)
 Output:
 ['bridge', 'bridge', 'bridge', 'bridge']
 
-Question2
+#uestion2 from https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
 #regex practice from exercise book#2#did not produce the expected output
 Question: Find all instances of a London ward being mentioned
 def London_ward(text1):
@@ -24,7 +25,7 @@ text1=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\G
 London_ward(text1)  
 Output:
 []
-Question3
+#uestion3 from https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
  #regex practice from exercise book#3 Clarkenwell Clerkenwell
  def spelling_var(text2):
      text2=text2.read()
@@ -36,7 +37,7 @@ spelling_var(text2)
 ['Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clarkenwell', 'Clerkenwell']
 
 
- #regex practice from exercise book#4
+ #regex practice from exercise book#4 from https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
 # Question: Change all instances of the former spelling into the latter spelling
  def change_spell(text3):
      text3=text3.read()
@@ -47,7 +48,7 @@ change_spell(text3)
 Output:
 The whole text
 
-#regex practice from exercise book#5
+#regex practice from exercise book#5 from https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
 #question: How many paragraphs does Defoe begin with ‘I’?
 def paragraph(text):
     text=text.read() #read the text
@@ -66,7 +67,7 @@ paragraph(text)
 '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', 
 '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ', '\n\nI ']
 
-#regex practice from exercise book#6
+#regex practice from exercise book#6 #https://port.sas.ac.uk/mod/book/tool/print/index.php?id=581
 #Question: Remove all of the paragraph break characters in the text which do not actually signify the beginning of a new paragraph (that is, which are only used to restrict line length for visual display) 
 def paragraph1(text1): #this function will identify the real paragraphs with a symbol, @@@@
     text1=text1.read() #read the text
