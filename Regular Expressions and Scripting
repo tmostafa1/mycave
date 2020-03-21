@@ -164,12 +164,16 @@ a
 
 ##from https://www.hackerrank.com/challenges/re-start-re-end/problem
 ##Task: You are given a string S. Your task is to find the indices of the start and end of string K in S.
-##the following solution is working. but could not name the strings as 'k' or 's'.
-match=re.search(r'gg', 'abccde')
-if match:
-    print((match.start(), match.end()))
-else:
-    print((-1, -1))
+def find_index(k, s):
+    pattern=re.compile(k)
+    r=pattern.search(s)
+    if not r:
+        print (('-1', '-1'))
+    if r:
+        print((r.start(), r.end()-1))
+k='cc'
+s='asdgccffg'
+find_index(k, s)
 #output:
-(-1, -1)
+(4, 5)
          
