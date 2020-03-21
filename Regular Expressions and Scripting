@@ -161,4 +161,15 @@ m='..23aa8567aa4456a'
 my_group(m)
 ##output:
 a
+
+##from https://www.hackerrank.com/challenges/re-start-re-end/problem
+##Task: You are given a string S. Your task is to find the indices of the start and end of string K in S.
+##the following solution is working. but could not name the strings as 'k' or 's'.
+match=re.search(r'gg', 'abccde')
+if match:
+    print((match.start(), match.end()))
+else:
+    print((-1, -1))
+#output:
+(-1, -1)
          
