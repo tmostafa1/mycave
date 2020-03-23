@@ -229,4 +229,23 @@ phone_num(2)
 NO
 9873451224
 YES
-        
+ 
+ ####practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem 
+##You are given a string s consisting only of digits 0-9, commas ,, and dots .
+##Your task is to complete the regex_pattern defined below, which will be used to re.split() all of the , and . symbols in s.
+##It’s guaranteed that every comma and every dot in s is preceeded and followed by a digit.
+         
+def split_by_comma(S):
+    
+    regex_pattern=r'[,.]+' #fix the regex pattern
+    m=re.split(regex_pattern, S) #split the string by the fixed pattern 
+    print (*m, sep="\n")
+
+S='100,789,3456.00'
+split_by_comma(S)
+
+#output: 
+100
+789
+3456
+00
