@@ -177,3 +177,13 @@ find_index(k, s)
 #output:
 (4, 5)
          
+##re-sub() practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem
+##You are given a string, and you have to validate whether it's a valid Roman numeral. 
+#If it is valid, print True. Otherwise, print False. Try to create a regular expression for a valid Roman numeral.
+
+def delete_symbol(text):
+    text=int(input())
+    for item in range(text):
+        print (re.sub(r'(?<= )(&&|\|\|)(?= )', lambda x: 'and' if x.group()=='&&' else 'or', input()))
+        
+delete_symbol(text)  
