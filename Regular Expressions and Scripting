@@ -197,3 +197,17 @@ def roman_numeral(word):
     a=re.compile('M{0, 4} (CM|CD|D?C{0, 3}) (XL|XC|L?X{0,3})(IX|IV|V?X{0, 3})$')
     print(bool(re.match(a, word)))
     
+ ####practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem   
+##You are given some input, and you are required to check whether they are valid mobile numbers.
+##A valid mobile number is a ten digit number starting with a 7, 8, or 9.
+
+def mobile_num(digit):
+    digit=input()
+    match=re.compile(r'^[789]\d{9}$')
+    for i in range(digit):
+        
+        if re.match(r'^[789]\d{9}$', digit):
+            
+            print('yes')
+        else:
+            print('no')
