@@ -178,8 +178,9 @@ find_index(k, s)
 (4, 5)
          
 ##re-sub() practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem
-##You are given a string, and you have to validate whether it's a valid Roman numeral. 
-#If it is valid, print True. Otherwise, print False. Try to create a regular expression for a valid Roman numeral.
+##You are given a text of  lines. The text contains && and || symbols.
+##Your task is to modify those symbols to the following: && → and || → or
+##Both && and || should have a space " " on both sides.
 
 def delete_symbol(text):
     text=int(input())
@@ -187,3 +188,12 @@ def delete_symbol(text):
         print (re.sub(r'(?<= )(&&|\|\|)(?= )', lambda x: 'and' if x.group()=='&&' else 'or', input()))
         
 delete_symbol(text)  
+
+##practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem
+##You are given a string, and you have to validate whether it's a valid Roman numeral. 
+#If it is valid, print True. Otherwise, print False. Try to create a regular expression for a valid Roman numeral.
+
+def roman_numeral(word):
+    a=re.compile('M{0, 4} (CM|CD|D?C{0, 3}) (XL|XC|L?X{0,3})(IX|IV|V?X{0, 3})$')
+    print(bool(re.match(a, word)))
+    
