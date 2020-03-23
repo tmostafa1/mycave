@@ -211,13 +211,22 @@ def mobile_num(digit):
             print('yes')
         else:
             print('no')
-  ##another solution of the above. could not make it work either.
-  N=int(input())
-for i in range(N):
-    a=raw_input()
-    MatchObj=re.search(r'^[789][0-9]{9}$', a)
-    if MatchObj:
-        print('yes')
-    else:
-        print('no')
+  ##another solution of the above. It works.
+ def phone_num(N):
+    N =int(N)
+    for i in range(N):   
+        a=input()
+        MatchObj=re.search(r'^[789][0-9]{9}$', a)
+        if MatchObj:
+            print('YES')
+        else: 
+            print('NO')
+N = input()
+phone_num(2)
+
+#Output:
+2347893456
+NO
+9873451224
+YES
         
