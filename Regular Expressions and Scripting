@@ -249,3 +249,37 @@ split_by_comma(S)
 789
 3456
 00
+
+##A valid email address meets the following criteria:
+#It's composed of a username, domain name, and extension assembled in this format: username@domain.extension
+#The username starts with an English alphabetical character, and any subsequent characters consist of one or more of the following: alphanumeric characters, -,., and _.
+#The domain and extension contain only English alphabetical characters.
+#The extension is , , or  characters in length.
+#Given  pairs of names and email addresses as input, print each name and email address pair having a valid email address on a new line.
+#the following solution didn't work
+import email.utils
+import re
+def email_parser(P):
+    P=int(P)
+    for i in range(P):
+        b=input()
+        Match=re.search(r'<([a-zA-Z]+) [\w.%-]+@[a-zA-Z]+\.[a-zA-Z]{2,4}>', b)
+        if Match:
+            print(email.utils.formataddr(b))
+        else:
+            print('none')
+P=input()
+email_parser(2)
+            
+#the above solution didn't work. the following is an alternative. It didn't work either
+def email_parser(P):
+    P=int(P)
+    b= r'^<([a-zA-Z]+) [\w.%-]+@[a-zA-Z]+\.[a-zA-Z]{2,4}>$'
+    for i in range (P):
+        m=re.match(b, input().strip())
+        if m:
+            print(m. group())
+P=input()
+email_parser(2)
+
+
