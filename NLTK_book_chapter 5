@@ -27,3 +27,19 @@ print(text2)
 #output
 print(text2)
 [('They', 'PRP'), ('wind', 'VBP'), ('back', 'RB'), ('the', 'DT'), ('clock', 'NN'), (',', ','), ('while', 'IN'), ('we', 'PRP'), ('chase', 'VBP'), ('after', 'IN'), ('the', 'DT'), ('wind', 'NN')]
+
+##nltk book chaoter 5 exercise_14
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
+from nltk import word_tokenize, pos_tag
+def sorted_text(text):
+    text=text.read()
+    text=word_tokenize(text)
+    text1=pos_tag(text)
+    text2=dict(text1)
+    text3=dict((value, key) for (key, value) in text2.items())
+    print(sorted(set(text3))) 
+
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')      
+sorted_text(text)    
+#output
+[',', '.', ':', 'CC', 'CD', 'DT', 'EX', 'IN', 'JJ', 'JJR', 'MD', 'NN', 'NNP', 'NNS', 'POS', 'PRP', 'PRP$', 'RB', 'RBS', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WRB']
