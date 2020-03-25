@@ -282,4 +282,60 @@ def email_parser(P):
 P=input()
 email_parser(2)
 
+#mock interview#confirming flight number
+#Pattern: 1) only numbers and digits are allowed, 2) no small letter, 3) must be 13 in length
+#Input: Flight confirmation number: List of strings.
 
+import re
+def confirmation_num (flight):
+    pattern=r'\b[A-Z0-9]{5}\b'
+    for elem in flight:
+        print(elem)
+        m=re.search(pattern, elem)
+        if m:
+            print('it is a valid confirmation number')
+        else:
+            print('invalid number')
+            
+flight= ['DHY', 'RTH65', 'F45TH']
+confirmation_num (flight)
+#Output
+DHY
+invalid number
+RTH65
+it is a valid confirmation number
+F45TH
+it is a valid confirmation number
+
+#Floating point number practice from https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem
+#from hackerrank
+##You are given a string . Your task is to verify that  is a floating point number.
+#In this task, a valid float number must satisfy all of the following requirements:
+#Number can start with +, - or . symbol.
+#For example:✔+4.50 ✔-1.0✔.5✔-.7✔+.4✖ -+4.5  
+#Number must contain at least 1 decimal value. For example: ✖12.✔12.0  
+#Number must have exactly one . symbol.
+import re
+def floating_num(K):
+    K=int(K)
+    for i in range(K): 
+        a=input()
+        pattern= r'^[\+\-]?[0-9]*\.[0-9]+$'
+        m=re.search(pattern, a)
+        if m:
+            print('True')
+        else:
+            print('False')
+K=input()
+floating_num(K)
+#output
+3
+
+.6
+True
+
++.7865
+True
+
++6.76
+True
