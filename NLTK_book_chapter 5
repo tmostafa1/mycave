@@ -43,3 +43,4 @@ text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\ha
 sorted_text(text)    
 #output
 [',', '.', ':', 'CC', 'CD', 'DT', 'EX', 'IN', 'JJ', 'JJR', 'MD', 'NN', 'NNP', 'NNS', 'POS', 'PRP', 'PRP$', 'RB', 'RBS', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WRB']
+
