@@ -1,0 +1,18 @@
+#def sorted_text(text) Exercise 15_3:
+def sorted_text1(text):
+    text=text.read()
+    text=word_tokenize(text)
+    text1=pos_tag(text)
+    tags=[] #create an empty list
+    for (word, tag) in text1:
+        tags.append(tag) #append the tags to the empty list
+    fdist1=FreqDist(tags) #make a frequency distribution of the tag list
+    print(fdist1.most_common(20))
+    
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
+sorted_text1(text) 
+
+Output:
+[('NN', 64), ('IN', 47), ('PRP', 35), ('DT', 30), (',', 27), ('VBP', 24), ('CC', 23), 
+('RB', 20), ('VB', 18), ('.', 15), ('TO', 12), ('JJ', 12), ('VBZ', 11), ('PRP$', 10), ('VBN', 7), 
+('MD', 6), ('VBG', 6), ('NNP', 3), ('NNS', 3), ('WP', 3)]
