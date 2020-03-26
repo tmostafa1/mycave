@@ -1,0 +1,21 @@
+#def sorted_text(text) Exercise 15_4
+#Which tags are nouns most commonly found after? What do these tags represent?
+import nltk
+from nltk.util import ngrams
+
+def sorted_text1(text):
+    text=text.read()
+    text=word_tokenize(text)
+    text1=pos_tag(text)
+    text1_bigrams=list(ngrams(text1, 2))
+    word_before_noun=(tag1 for((word1, tag1), (word2, tag2)) in text1_bigrams if tag2.startswith('N'))
+    fdist1=FreqDist(word_before_noun)
+    m=fdist1.tabulate()
+    print(m)
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\hafsa.txt', 'r')
+sorted_text1(text)     
+##Output:
+: sorted_text1(text)
+  DT   NN   IN PRP$   JJ   VB    ,   CC  JJR  VBP   TO   RB   CD 
+  21    9    9    7    5    4    4    3    2    2    1    1    1 
+None
