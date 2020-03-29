@@ -1,0 +1,15 @@
+#Write code to search the Brown Corpus for particular words and phrases according to tags, to answer the following questions:
+#Produce an alphabetically sorted list of the distinct words tagged as MD.  
+from nltk import word_tokenize, pos_tag
+def sorted_list(text):
+    text1=text.read()
+    text1=word_tokenize(text1)
+    text2=pos_tag(text1)
+    new_list= list()
+    for (word, tag) in text2:
+        if tag=='MD':
+            new_list.append(word)
+    print(sorted(set(new_list)))
+            
+text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
+sorted_list(text)     
