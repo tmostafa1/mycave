@@ -13,3 +13,5 @@ def sorted_list(text):
             
 text=open('F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice\Julian.txt', 'r')
 sorted_list(text)     
+#output:
+['ca', 'can', 'would']
