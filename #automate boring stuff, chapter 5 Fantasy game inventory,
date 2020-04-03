@@ -1,0 +1,16 @@
+#from automate boring stuff with Python#Fantasy game imventory
+def display_inventory(b):
+    count=0
+    for key, value in b.items():
+        count=count+b.get(key)
+    print(*b.items(), sep='\n') 
+    print('total number of items:'+ str(count))
+b={'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+display_inventory(b)
+#output
+('rope', 1)
+('torch', 6)
+('gold coin', 42)
+('dagger', 1)
+('arrow', 12)
+total number of items:62
