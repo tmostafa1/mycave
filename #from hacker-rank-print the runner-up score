@@ -1,13 +1,10 @@
 #from hacker-rank-print the runner-up score
-n=int(input()) #specify the number of input
-number=list(map(int, input().split())) #speciy the input of numbers, map integer value to every element, split the input, and make it a list
-largest=max(number) #specify the max value of the input list
-for i in range(n): #for every element in the input list
-    if largest==max(number): #if one or more value is equal to the largest value
-        number.remove(max(number)) #remove those value from the 'number' variable
-print(max(number)) #pritn the max value of the number variable
+
+a=int(input()) #specify the number of input
+b=list(map(int, input().split())) #speciy the input of numbers, map integer value to every element, split the input, and make it a list
+m=sorted(list(dict.fromkeys(b)))
+print(m[-2])
 #output:
 5
-
 2 3 6 6 5
 5
