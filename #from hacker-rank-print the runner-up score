@@ -2,7 +2,7 @@
 
 a=int(input()) #specify the number of input
 b=list(map(int, input().split())) #speciy the input of numbers, map integer value to every element, split the input, and make it a list
-m=sorted(list(dict.fromkeys(b)))
+m=sorted(list(dict.fromkeys(b))) #first turn the list to a dictionary(dictionary keys don't have duplicate values) and then turn it to a list again and then sort it
 print(m[-2])
 #output:
 5
