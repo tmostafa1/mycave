@@ -1,0 +1,37 @@
+#finding the percentage # from https://www.hackerrank.com/challenges/finding-the-percentage/problem
+e=int(input())
+b=dict()
+for i in range(e):
+    line=input().split()
+    b[line[0]]=list(map(float, line[1:]))
+new_name=input()
+ave_score=b[new_name]
+m=sum(ave_score)/len(ave_score)
+print(round(m, 2))
+##input
+2
+
+rty 3.56 3.65 2.78
+
+rtf 6.34 7.56 9.23
+
+rty
+##output
+3.33
+
+
+
+#finding the percentage # this one works
+e=int(input())
+b=dict()
+for i in range(0, e):
+    name = input()
+    result=0
+    count=0
+    for grade in input().split(" "):
+        result += float(grade)
+        count += 1
+    b.update([(name, result/count)])
+r=input()
+print (round(b[r], 2))
+##input
