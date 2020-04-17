@@ -1,0 +1,19 @@
+#British and American style of spelling #from# https://www.hackerrank.com/challenges/uk-and-us/problem
+import re
+n=int(input())
+count=' '
+for line in range(n):
+    count+=input()
+for line in range(int(input())):
+    word=input()
+    print(len(re.findall(word[:len(word)-2]+ '[sz]e', count)))
+#input
+1
+
+i utilize new one
+
+1
+
+utilize
+#output
+1
