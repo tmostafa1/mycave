@@ -1,0 +1,12 @@
+##Hackerrank##SwapCase#https://www.hackerrank.com/challenges/swap-case/problem
+string_item=input()
+for i in string_item:
+    if i.isupper():
+        print (i.lower(), end= '')
+    else:
+        print(i.upper(), end='')
+
+#input:
+HackerRank.com presents "Pythonist 2"
+#output
+hACKERrANK.COM PRESENTS "pYTHONIST 2"
