@@ -1,0 +1,35 @@
+##hackerrank#ListProblem#https://www.hackerrank.com/challenges/python-lists/problem
+#y solution
+n=int(input())
+my_list=[]
+for i in range(n):
+    m=input().split()
+    if m[0]=='insert':
+        my_list.insert(int(m[1]), (int(m[2])))
+    elif m[0]== 'remove':
+        my_list.remove(int(m[1]))
+    elif m[0]== 'append':
+        my_list.append(int(m[1]))
+    elif m[0]== 'sort':
+        sorted(my_list)
+    elif m[0]=='pop':
+        my_list.pop()
+    elif m[0]== 'reverse':
+        my_list.reverse()
+    elif m[0]== 'print':
+        print(my_list)
+
+
+##hackerrank#ListProblem#https://www.hackerrank.com/challenges/python-lists/problem
+#another another version
+n=int(input())
+my_list=[]
+for i in range(n):
+    m=input().split()
+    func=m[0]
+    arg=m[1:]
+    if func != 'print':
+        func += "(" + ",".join(arg)+ ")"
+        eval("my_list."+ func)
+    else:
+        print(my_list)
