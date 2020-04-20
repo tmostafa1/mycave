@@ -1,0 +1,7 @@
+#Tuple#https://www.hackerrank.com/challenges/python-tuples/problem
+m=int(input())
+p=input().split(' ')
+Lis_p=map(int, p)
+k=tuple(Lis_p)
+print(hash(k))
+        
