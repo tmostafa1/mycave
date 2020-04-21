@@ -1,0 +1,15 @@
+###Find a string #https://www.hackerrank.com/challenges/find-a-string/problem#it works
+bigSent=input().strip()
+smallSent=input().strip()
+count=0
+for i in range(len(bigSent)):
+    if bigSent[i:i+len(smallSent)]==smallSent:
+        count+=1
+print(count)
+
+#input
+ABCDCDCG
+
+CDC
+#output
+2
