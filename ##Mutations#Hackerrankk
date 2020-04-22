@@ -13,3 +13,15 @@ abracadabra
 5 k
 #Output
 abrackdabra
+
+#doing the above solution by slicing string
+s=input()
+line=input().split()
+print(s[:int(line[0])]+line[-1]+s[(int(line[0])+int(1)):])
+
+#input:
+iloveyou
+
+3 d
+#output
+ilodeyou
