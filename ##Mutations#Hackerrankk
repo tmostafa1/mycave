@@ -1,0 +1,15 @@
+#Mutations#https://www.hackerrank.com/challenges/python-mutations/problem
+#Read a given string, change the character at a given index and then print the modified string.
+s=input()
+line=input().split()
+s=list(s)
+s[int(line[0])]=line[-1]
+p=''.join(s)
+print(p)
+
+#input
+abracadabra
+
+5 k
+#Output
+abrackdabra
