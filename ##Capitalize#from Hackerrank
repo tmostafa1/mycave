@@ -1,0 +1,8 @@
+##Capitalize#from Hackerrank# https://www.hackerrank.com/challenges/capitalize/problem
+def solve(s):
+    s=s.split(' ')  
+    print(' '.join((word.capitalize() for word in s)))
+s='hello world'
+solve(s)
+#output
+Hello World
