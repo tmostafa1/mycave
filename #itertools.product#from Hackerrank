@@ -1,0 +1,11 @@
+#itertools.product#from Hackerrank# https://www.hackerrank.com/challenges/itertools-product/problem
+from itertools import product 
+a=input().split()
+b=input().split()
+print(list(product((x, y) for x in a for y in b)))
+#input
+2 3
+
+4 5
+#output
+[(('2', '4'),), (('2', '5'),), (('3', '4'),), (('3', '5'),)]
