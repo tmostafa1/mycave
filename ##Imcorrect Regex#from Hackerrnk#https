@@ -1,0 +1,32 @@
+##Imcorrect Regex#from Hackerrnk#https://www.hackerrank.com/challenges/incorrect-regex/problem
+# it is giving wrong output. so something wrong with the code
+import re
+n=int(input())
+for i in range(n):
+    myPattern=input()
+    pattern=r'^([a-bA-B0-9]|.|\w)[*|+|?]|{[1-9]-,}[@$=\[\]\(\)\+\*\?%&#]*$'
+    print(bool(re.search(pattern, myPattern)))
+ #input
+ 1
+
+.*+
+#output
+True
+
+#another try of the above # it works
+import re
+n=int(input())
+for i in range(n):
+    myPattern=input()
+    try:
+        print(bool(re.compile(myPattern)))
+    except:
+        print (False)
+        
+ #input
+ 1
+
+.*+
+#output
+False
+ 
