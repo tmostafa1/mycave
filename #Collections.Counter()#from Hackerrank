@@ -1,0 +1,34 @@
+#Collections.Counter()#from Hackerrank#https://www.hackerrank.com/challenges/collections-counter/problem
+from collections import Counter
+n=int(input())
+ShoeSize= Counter(map(int, input(). strip().split()))
+num_customer=int(input())
+count=0
+for i in range(num_customer):
+    size, price=map(int, input().strip().split())
+    if ShoeSize[size]:
+        count+= price
+        ShoeSize[size]-=1
+        
+print(count)
+
+#input
+10
+
+2 3 4 5 6 8 7 6 5 18
+
+6
+
+6 55
+
+6 45
+
+6 55
+
+4 40
+
+18 60
+
+10 50
+#output
+200
