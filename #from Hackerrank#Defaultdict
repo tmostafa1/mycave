@@ -1,0 +1,49 @@
+#from Hackerrank#Defaultdic#https://www.hackerrank.com/challenges/defaultdict-tutorial/problem
+#this version didn't work
+from collections import defaultdict
+a=map(int, input().strip().split())
+c=defaultdict(list)
+d=defaultdict(list) 
+c['A'].append(input())
+c['A'].append(input())
+c['A'].append(input())
+c['A'].append(input())
+c['A'].append(input())
+
+d['B'].append(input())
+d['B'].append(input())
+
+for i in d.values():
+    if i in c.values():
+        print (c.index(i), '\n')
+
+#another try an the following #this one works
+from collections import defaultdict
+a, b=list(map(int, input().strip().split()))
+
+d=defaultdict(list) 
+for i in range(a):
+    d[input()].append(i+1)
+    
+for i in range(b):
+    print(' '.join(map(str, d[input()])) or -1)
+    
+#input
+5 2
+
+a
+
+a
+
+b
+
+d
+
+f
+
+a
+b
+
+#output
+1 2
+3
