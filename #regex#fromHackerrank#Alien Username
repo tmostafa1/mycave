@@ -1,0 +1,12 @@
+#regex#fromHackerrank#Alien Username# https://www.hackerrank.com/challenges/alien-username/problem
+import re
+n=int(input())
+pattern=r'^[_.][0-9]+[a-zA-Z]*_?$'
+for i in range(n):
+    p=input()
+    if re.search(pattern, p):
+        print('Valid')
+    else:
+        print('Invalid')
+        
+   
