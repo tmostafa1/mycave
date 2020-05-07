@@ -1,0 +1,25 @@
+#from Hackerrank#set.add# https://www.hackerrank.com/challenges/py-set-add/problem
+n=int(input())
+b=set()
+for i in range(n):
+    b.add(input())
+print(len(b))
+
+#input
+7
+
+UK
+
+China
+
+USA
+
+France
+
+NewZealand
+
+UK
+
+France
+#output
+5
