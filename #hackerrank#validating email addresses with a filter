@@ -1,0 +1,21 @@
+#hackerrank#validating email addresses with a filter# https://www.hackerrank.com/challenges/validate-list-of-email-address-with-filter/problem
+import re
+pattern=r'^[a-zA-Z\d_-]*@[a-zA-Z\d]+\.[a-z]{1,3}$'
+n=int(input())
+s=[]
+for i in range(n):
+    p=input()
+    s.append(p)
+print(list(sorted(filter(lambda x: re.search(pattern, x), s))))
+
+#input
+3
+
+df#%&@%&*.erhgfjfjgn
+
+brian-23@hackerrank.com
+
+tmostafabd@gmail.com
+
+#output
+['brian-23@hackerrank.com', 'tmostafabd@gmail.com']
