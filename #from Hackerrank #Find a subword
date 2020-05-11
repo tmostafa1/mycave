@@ -1,0 +1,28 @@
+#from Hackerrank #Find a subword # https://www.hackerrank.com/challenges/find-substring/problem
+#it works
+import re
+n=int(input())
+my_list=[]
+for i in range(n):
+    p=input()
+    my_list.append(p)
+text='\n'.join(my_list)
+m=int(input())
+for i in range(m):
+    pattern="\w+" + input().strip() + "\w+"
+    code= re.findall(pattern, text)
+    print(len(code))
+ 
+ #input
+ 2
+
+i loveyou ver
+
+yri ghtvery
+
+1
+
+ve
+
+#output
+2
