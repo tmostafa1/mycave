@@ -1,0 +1,37 @@
+#from Hackerrank# Alien Username #https://www.hackerrank.com/challenges/alien-username/problem
+#it works
+import re
+n=int(input())
+pattern= r'^[_|\.][0-9]+[a-zA-Z]*_?$'
+for i in range(n):
+    if re.findall(pattern, input().strip()):
+        print('VALID')
+    else:
+        print('INVALID')
+
+#another version of the above
+import re
+n=int(input())
+pattern= r'^[_|\.][0-9]+[a-zA-Z]*_?$'
+m=[]
+for i in range(n):
+    p=input().strip()
+    m.append(p)
+for elem in m:
+    if re.findall(pattern, elem):
+        print('VALID')
+    else:
+        print('INVALID')
+ 
+ #input
+ 3
+
+_0898989811abced_
+
+_abce
+
+_09090909abcD0
+#output
+Valid
+Invalid
+Invalid
