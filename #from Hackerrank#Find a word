@@ -1,0 +1,26 @@
+#from Hackerrank#Find a word #https://www.hackerrank.com/challenges/find-a-word/problem
+#it works
+import re
+n=int(input())
+my_list=[]
+for i in range(n):
+    p=input()
+    my_list.append(p)
+text='\n'.join(my_list)
+m=int(input())
+for i in range(m):
+    pattern="((?<=[\W])|^)" +input().strip()+ "((?=[\W])|$)"
+    code=re.findall(pattern, text)
+    print(len(code))
+    
+#input
+1
+
+foo bar (foo) bar foo-bar foo_bar foo'bar bar-foo bar, foo.
+
+1
+
+foo
+#output
+6
+   
