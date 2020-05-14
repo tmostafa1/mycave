@@ -1,0 +1,28 @@
+#from Hackerrank #Symmetric difference #https://www.hackerrank.com/challenges/symmetric-difference/problem
+
+m, a= (int(input()), input().split())
+n, b= (int(input()), input().split())
+myset1=set(map(int, a))
+myset2=set(map(int, b))
+p=myset1.difference(myset2)
+q=myset2.difference(myset1)
+c=p.union(q)
+mylist=sorted(list(c))
+print(*mylist, sep="\n")
+
+#input
+4
+
+2 4 5 9
+
+4
+
+2 4 11 12
+
+#output
+5
+9
+11
+12
+
+  
