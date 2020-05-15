@@ -1,0 +1,13 @@
+#from hackerrank# what's your name # https://www.hackerrank.com/challenges/whats-your-name/problem
+def print_full_name(a, b):
+    print("Hello " + a + ' '+ b +"!"+ " You just delved into python.")
+a=input()
+b= input()
+print_full_name(a, b)
+
+#Input
+tamanna
+
+mostafa
+#output
+Hello tamanna mostafa! You just delved into python.
