@@ -1,0 +1,23 @@
+#from Hackerrank#itertools.permutations() # https://www.hackerrank.com/challenges/itertools-permutations/problem
+from itertools import permutations
+my_string, r_value=input().split()
+r_value=int(r_value)
+my_list=sorted((list(permutations(my_string, r_value))))
+for i in my_list:
+    print(*[''.join(i)], sep= '\n')
+    
+#input
+HACK 2
+#output
+AC
+AH
+AK
+CA
+CH
+CK
+HA
+HC
+HK
+KA
+KC
+KH
