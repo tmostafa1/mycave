@@ -1,0 +1,27 @@
+#from Hackerrank#British and American spelling# https://www.hackerrank.com/challenges/uk-and-us/problem
+import re
+n=int(input())
+txt=' '
+for i in range(n):
+    txt +=input()
+my_list=[]    
+m=int(input())
+for i in range(m):
+    u=input()
+    my_list.append(u)
+for i in my_list:
+    print(len(re.findall(i[:len(i)-2]+'[zs]e', txt)))
+    
+#input
+2
+
+hackerrank has such a good ui that it takes no time to familiarise its environment
+
+to familiarize oneself with ui of hackerrank is easy
+
+1
+
+familiarize
+
+#output
+2
