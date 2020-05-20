@@ -1,0 +1,42 @@
+#from Hackerrank #UK and US: Part 2 #https://www.hackerrank.com/challenges/uk-and-us-2/problem
+#passed 7/10 test cases
+import re
+n=int(input())
+txt = ' '
+for i in range(n):
+    txt+= input()
+my_list=[]
+m=int(input())
+for i in range(m):
+    p= input()
+    my_list.append(p)
+for i in my_list:
+    print(len(re.findall(i[:len(i)-2]+'u?r', txt)))
+
+#input
+2
+
+the odour coming out of the left over food was intolerable
+
+ammonia has a very pungent odor
+
+1
+
+odour
+
+#output
+2
+
+#another version of the above. passed 5/5 test cases
+import re
+n=int(input())
+txt = ' '
+for i in range(n):
+    txt+= input()
+my_list=[]
+m=int(input())
+for i in range(m):
+    p= input()
+    my_list.append(p)
+for i in my_list:
+    print(len(re.findall(i[:i.index('o')]+'ou?'+i[i.index('r'):], txt)))
