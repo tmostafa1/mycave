@@ -1,0 +1,29 @@
+#from Hackerrank #Building a Smart IDE: Identifying comments #https://www.hackerrank.com/challenges/ide-identifying-comments/problem
+import re
+content=[]
+while True:
+    line= input()
+    if line:
+        content.append(line)
+    else:
+        break
+my_content='\n'.join(content)
+pattern1=r'//.*?' #the pattern for single line match 
+pattern2=r'/\*.*?\*/' #the pattern for multiline match
+pattern3=r'(/\*.*?\*/|//.*?$)' #the pattern ombining both
+m=re.findall(pattern3, my_content, re.DOTALL|re.MULTILINE)
+print('\n'.join(re.sub('\n\s+', '\n', i) for i in m))
+
+#input
+for (V neighbor : super.neighbors(v1)){
+    if (!neighbor.visited ){ //if the neighbor is not visited before
+        if (isReachableHelper(neighbor, v2, path)) { //recursive call
+            return true; // we found a path!
+        }
+    }
+}
+
+#output
+//if the neighbor is not visited before
+//recursive call
+// we found a path!
