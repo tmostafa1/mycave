@@ -1,0 +1,23 @@
+#from hackerrank#Exceptions #https://www.hackerrank.com/challenges/exceptions/problem
+p=int(input())
+for i in range(p):
+    a, b= input().split()
+    try:
+        print(int(a)//int(b))
+    except ZeroDivisionError as e:
+        print("Error Code:", e)
+    except ValueError as f:
+        print("Error Code:", f)
+        
+  #input
+  3
+1 0
+2 $
+3 1
+
+
+#output
+Error Code: integer division or modulo by zero
+Error Code: invalid literal for int() with base 10: '$'
+3
+
