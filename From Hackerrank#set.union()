@@ -1,0 +1,14 @@
+From Hackerrank#set.union()##from https://www.hackerrank.com/challenges/py-set-union/problem
+n=int(input())
+p=set(input().split())
+m=int(input())
+q=set(input().split())
+print(len(set(p.union(q))))
+
+#input
+9
+1 2 3 4 5 6 7 8 9
+9
+10 1 2 3 11 21 55 6 8
+#output
+13
