@@ -1,0 +1,35 @@
+#fromHackerRank#WordOrder#https://www.hackerrank.com/challenges/word-order/problem
+import collections
+t=[]
+for i in range(int(input())):
+    p=input()
+    t.append(p)
+counter=collections.Counter(t)
+s=counter.values()
+print(len(s))
+print(*s)
+#input
+4
+bcdef
+abcdefg
+bcde
+bcdef
+#output
+3
+2 1 1
+
+##Another solution of the above
+import nltk
+from nltk.probability import FreqDist
+t=[]
+for i in range(int(input())):
+    p=input()
+    t.append(p)
+s=FreqDist(t)
+p=[]
+for key, value in s.items():
+    p.append(value)
+print(len(p))
+print(' '.join(map(str, p)))
+        
+                                 
