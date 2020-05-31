@@ -1,0 +1,25 @@
+##from Hackerrank#Hackerrack Tweets #https://www.hackerrank.com/challenges/hackerrank-tweets/problem
+import re
+t=[]
+n=int(input())
+for i in range(0, n):
+    p=input()
+    t.append(p)
+pattern=r'\b[\W]*hackerrank[W]*\b'
+count=0
+for i in t:
+    if re.search(pattern, i, re.IGNORECASE):
+        count+=1    
+print(count)
+
+#input
+6
+@HAckeRrANK mention house calm favourite complain
+#HackerrAnk ourselves
+he function customer
+@HAcKErraNk concerned
+@hacKeRRanK tear relaxing reasonable cycling sand
+spoken replace website
+
+#output
+4
