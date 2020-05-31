@@ -1,0 +1,26 @@
+##importing docx to txt
+import docx
+import os
+
+def getText(filename):
+    doc = docx.Document(filename)
+    fullText = []
+    for para in doc.paragraphs:
+        txt = para.text.encode('ascii', 'ignore')
+        if txt != '':
+            fullText.append(txt)
+
+    fname = os.path.splitext(filename)[0] + '.txt'
+    finaltext = b'\n'.join(fullText)
+    print(finaltext.decode('utf-8'))   
+    print(fname)
+    with open(fname, "w") as text_file:
+        print(finaltext.decode('utf-8'), file=text_file)
+
+
+for dirpath, dnames, fnames in os.walk("F:\Monologic_T3_doc_Annotated"):
+    for f in fnames:
+        if f.endswith('.docx'):
+            getText(os.path.join(dirpath, f))
+        # print (os.path.join(dirpath, f))
+
