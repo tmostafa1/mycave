@@ -1,0 +1,14 @@
+#https://www.hackerrank.com/challenges/merge-the-tools/problem
+string, k = input(), int(input())
+def merge_the_tools(string, k):
+    p=list(zip(*[iter(string)]*k))
+    for i in p:
+        print(''.join(list(dict.fromkeys(i))))
+
+#input
+AABCAAADA
+3
+#output
+AB
+CA
+AD
