@@ -1,0 +1,30 @@
+#https://www.hackerrank.com/challenges/find-hackerrank/problem
+import re
+n=int(input())
+for i in range (n):
+    p=input()
+    HFirst=r'^hackerrank'
+    HLast=r'hackerrank$'
+    HOnly=r'^hackerrank(.*hackerrank)?$'
+    if re.search(HOnly, p):
+        print(0)
+    elif re.search(HFirst, p):
+        print(1)
+    elif re.search(HLast, p):
+        print(2)
+    else:
+        print(-1)
+        
+        
+    #input
+    4
+i love hackerrank
+hackerrank is an awesome place for programmers
+hackerrank
+i think hackerrank is a great place to hangout
+
+#output
+2
+1
+0
+-1
