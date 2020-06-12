@@ -1,0 +1,19 @@
+#froHackerrank#saying 'hi'
+#https://www.hackerrank.com/challenges/saying-hi/problem?h_r=next-challenge&h_v=zen
+import re
+t=[]
+for i in range(int(input())):
+    p=input()
+    t.append(p)
+for i in t:
+    pattern = r'^[H|h][I|i]\s{1}[^Dd]'
+    if re.search (pattern, i):
+        print(i)
+#input
+4
+Hi Alex how are you doing
+hI dave how are you doing
+Good by Alex
+hidden agenda
+#output
+Hi Alex how are you doing
