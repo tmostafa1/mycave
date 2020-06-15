@@ -1,0 +1,22 @@
+#fromHackerrank#HackerRank Language
+#https://www.hackerrank.com/challenges/hackerrank-language/problem
+import re
+for i in range(int(input())):
+    num, lang= input().split()
+    pattern=r'^(C|CPP|JAVA|PYTHON|PERL|PHP|RUBY|CSHARP|HASKELL|CLOJURE|BASH|SCALA|ERLANG|CLISP|LUA|BRAINFUCK|JAVASCRIPT|GO|D|OCAML|R|PASCAL|SBCL|DART|GROOVY|OBJECTIVEC)$'
+    if re.search(pattern, lang):
+        print('VALID')
+    else:
+        print('INVALID')
+
+#input
+3
+11022 BRAINFUCK
+11011 LUA
+11044 X
+
+
+#output
+VALID
+VALID
+INVALID
