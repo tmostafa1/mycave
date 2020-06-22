@@ -1,0 +1,20 @@
+#https://www.hackerrank.com/challenges/iterables-and-iterators/problem
+import itertools
+p=int(input())
+m=input().split()
+q=list ('0')
+new_lis=q+m
+n=int(input())
+b=list(itertools.combinations(new_lis[1:len(new_lis)+1], n))
+count=0
+for i in b:
+    if 'a' in i:
+        count+=1
+print(count/len(b))
+
+#input
+9
+a a a a d e u o i
+3
+#output
+0.880952380952
