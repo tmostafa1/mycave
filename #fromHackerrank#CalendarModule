@@ -1,0 +1,14 @@
+#https://www.hackerrank.com/challenges/calendar-module/problem
+import calendar
+s=list(map(int, input().split()))
+month=s[0]
+day=s[1]
+year=s[2]
+week_days=['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
+day= calendar.weekday(year, month, day)
+print(week_days[day])
+
+#input
+08 05 2015
+#output
+WEDNESDAY
