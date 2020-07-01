@@ -1,0 +1,21 @@
+#https://www.hackerrank.com/challenges/zipped/problem
+stu_num, sub= input().split()
+s=[]
+for i in range(int(sub)):
+    subjectNum= list(map(float, input().split()))
+    s.append(subjectNum)
+zip_file=zip(*s)
+for i in zip_file:
+    print(round(sum(i)/int(sub),1))
+    
+ #input
+ 5 3
+89 90 78 93 80
+90 91 85 88 86
+91 92 83 89 90.5
+#output
+90.0
+91.0
+82.0
+90.0
+85.5
