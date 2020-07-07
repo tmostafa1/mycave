@@ -1,0 +1,27 @@
+https://www.hackerrank.com/challenges/python-sort-sort/problem
+nm= input().split()
+n=int(nm[0])
+m=int(nm[1])
+a=[]
+for i in range(n):
+    a.append(list(map(int, input().strip().split())))
+    
+k=int(input())
+p=sorted(a, key=lambda x: x[k])
+for i in p:
+    print(' '.join([str(elem) for elem in i]))
+
+#input
+5 3
+10 2 5
+7 1 0
+9 9 9
+1 23 12
+6 5 9
+1
+#output
+7 1 0
+10 2 5
+6 5 9
+9 9 9
+1 23 12
