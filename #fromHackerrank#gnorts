@@ -1,0 +1,22 @@
+#https://www.hackerrank.com/challenges/ginorts/problem?h_r=next-challenge&h_v=zen
+p=input()
+lower_list=[]
+upper_list=[]
+odd_num=[]
+even_num=[]
+for i in p:
+    if i.islower():
+        lower_list.append(i)
+    elif i.isupper():
+        upper_list.append(i)
+    elif i.isdigit() and int(i)%int(2)==0:
+        even_num.append(i)
+    elif i.isdigit() and int(i)%int(2)!=0:
+        odd_num.append(i)
+m=sorted(lower_list)+sorted(upper_list)+sorted(odd_num)+sorted(even_num)
+print(''.join(m)) 
+
+#input
+Sorting1234
+#output
+ginortS1324
