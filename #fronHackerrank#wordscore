@@ -1,0 +1,22 @@
+#https://www.hackerrank.com/challenges/words-score/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+n=int(input())
+wordlist= input().split()
+vowels= 'aeiouy'
+scores=[]
+for word in wordlist:
+    count=0
+    for i in word:
+        if i in vowels:            
+            count+=1        
+    if count %2==0:
+        scores.append(int(2))
+    elif count %2!=0:
+        scores.append(int(1))
+print(sum(scores))
+
+#input
+18
+ehopcjxxlblxcjz nkrvqnvjpg vwxtg fbjrjpjjhurihqjogbzv iocoyvctjox tpuyibwaby gb dawslcofcaz iowjrcncn siblrumdncwefeirftg fwgbjjcsvyihrkjfza 
+pvek wfuqjvdzmpvq toaqnplkefvvhzzckj ucwmjxutkclh rizmiavejafewt wxfnotyzilyumnopfeyz hxdbxuytxmnbbddc
+#output
+27
