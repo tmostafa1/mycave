@@ -1,0 +1,22 @@
+#https://www.hackerrank.com/challenges/validate-list-of-email-address-with-filter/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+import re
+a=[]
+s=[]
+for i in range(int(input())):
+    p=input()
+    a.append(p)
+pattern=r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\..{1,3}$'
+for i in a:    
+    match=re.search(pattern, i)
+    if match:        
+        s.append(i)
+print(sorted(s))
+
+#input
+3
+learn.point@learningpoint.net
+learnpoint@learningpoint.net
+learnpoint@learningpoint.net1
+
+#output
+['learnpoint@learningpoint.net']
