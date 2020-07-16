@@ -1,0 +1,15 @@
+#https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem
+import re
+b=int(input())
+for i in range(b):
+    p=input()
+    p=re.sub(r'(?<=\s{1})&&(?=\s{1})', 'and', p)
+    p=re.sub(r'(?<=\s{1})\|\|(?=\s{1})', 'or', p)
+    print(p)
+
+#input
+1
+n && && && && && &&n
+
+#output
+n and and and and and &&n
