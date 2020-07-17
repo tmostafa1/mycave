@@ -1,0 +1,10 @@
+#https://www.hackerrank.com/challenges/input/problem
+var, result=input().split()
+x=int(var)
+print(eval(input())==int(result))
+
+#input
+1 4
+x**3 + x**2 + x + 1
+#output
+True
