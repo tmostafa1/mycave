@@ -1,0 +1,23 @@
+#https://www.hackerrank.com/challenges/the-minion-game/problem
+#this code passed all the test cases
+string=input()
+vowels=['A', 'E', 'I', 'O', 'U']
+kevsc=0
+stusc=0
+for i in range(len(string)):
+    if string[i] in vowels:
+        kevsc+=(len(string)-i)
+    else:
+        stusc+=(len(string)-i)
+if kevsc > stusc:
+    print('{} {}'.format('Kevin', kevsc))
+elif stusc > kevsc:
+    print('{} {}'.format('Stuart', stusc))
+else:
+    print('Draw')
+    
+#input
+BAANANAS
+
+#output
+Kevin 19
