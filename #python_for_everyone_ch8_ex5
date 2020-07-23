@@ -1,0 +1,38 @@
+my_text=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Python_practice\\test3.txt')
+count=0
+for line in my_text:
+    if line.startswith('From '):
+        my_line=line.split()
+        count+=1
+        print(my_line[1])
+print('there are {} lines that start with From'.format(count))
+
+#output
+stephen.marquard@uct.ac.za
+louis@media.berkeley.edu
+zqian@umich.edu
+rjlowe@iupui.edu
+zqian@umich.edu
+rjlowe@iupui.edu
+cwen@iupui.edu
+cwen@iupui.edu
+gsilver@umich.edu
+gsilver@umich.edu
+zqian@umich.edu
+gsilver@umich.edu
+wagnermr@iupui.edu
+zqian@umich.edu
+antranig@caret.cam.ac.uk
+gopal.ramasammycook@gmail.com
+david.horwitz@uct.ac.za
+david.horwitz@uct.ac.za
+david.horwitz@uct.ac.za
+david.horwitz@uct.ac.za
+stephen.marquard@uct.ac.za
+louis@media.berkeley.edu
+louis@media.berkeley.edu
+ray@media.berkeley.edu
+cwen@iupui.edu
+cwen@iupui.edu
+cwen@iupui.edu
+there are 27 lines that start with From
