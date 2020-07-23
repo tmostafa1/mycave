@@ -1,0 +1,18 @@
+my_lis=['Arise', 'But', 'It', 'Juliet', 'Who', 'already',
+'and', 'breaks', 'east', 'envious', 'fair', 'grief',
+'is', 'kill', 'light', 'moon', 'pale', 'sick', 'soft',
+'sun', 'the', 'through', 'what', 'window',
+'with', 'yonder']
+
+
+my_text=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Python_practice\\test2.txt')
+for line in my_text:
+    my_line=line.split()
+    for word in my_line:
+        if word not in my_lis:
+            my_lis.append(word)
+print(sorted(my_lis))
+
+#output
+['Arise', 'But', 'It', 'Juliet', 'Who', 'already', 'and', 'breaks', 'east', 'envious', 'fair', 
+'grief', 'is', 'kill', 'light', 'moon', 'pale', 'sick', 'soft', 'sun', 'the', 'through', 'what', 'window', 'with', 'yonder']
