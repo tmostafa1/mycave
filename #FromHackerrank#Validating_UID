@@ -1,0 +1,17 @@
+#https://www.hackerrank.com/challenges/validating-uid/problem
+import re
+for i in range(int(input())):
+    p=input()
+    if all([re.search(r, p) for r in [r'[A-Za-z0-9]{10}', r'([A-Z].*){2,}', r'([0-9].*){3,}']]) and not re.search(r'.*(.).*\1', p):
+        print('Valid')
+    else:
+        print('Invalid')
+
+#input
+2
+B1CD102354
+B1CDEF2354
+
+#output
+Invalid
+Valid
