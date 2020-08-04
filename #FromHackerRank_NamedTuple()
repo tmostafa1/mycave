@@ -1,0 +1,22 @@
+#https://www.hackerrank.com/challenges/py-collections-namedtuple/problem
+from collections import namedtuple
+n=int(input())
+m=[]
+grade_sheet=namedtuple('grade_sheet', input().split())
+for i in range(n):
+    ID, MARKS, NAME, CLASS=input().split()
+    data=grade_sheet(ID, MARKS, NAME, CLASS)
+    m.append(data.MARKS)
+p=[float(i) for i in m]
+print('{:.2f}'.format(sum(p)/len(p)))
+
+#input:
+5
+ID         MARKS      NAME       CLASS
+1          97         Raymond    7
+2          50         Steven     4
+3          91         Adrian     9
+4          72         Stewart    5
+5          80         Peter      6
+#output
+78.00
