@@ -1,0 +1,14 @@
+#https://www.hackerrank.com/challenges/np-arrays/problem
+import numpy
+def arrays(arr):
+    n_arr=arr[::-1]
+    a=numpy.array(n_arr, float)
+    return a
+arr = input().strip().split(' ')
+result = arrays(arr)
+print(result)
+
+#input
+1 2 3 4 -8 -10
+#output
+[-10.  -8.   4.   3.   2.   1.]
