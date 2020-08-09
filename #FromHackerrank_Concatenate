@@ -1,0 +1,40 @@
+##https://www.hackerrank.com/challenges/np-concatenate/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+import numpy
+r1, r2, c= input().split()
+b=[]
+c=[]
+for i in range(int(r1)):
+    p=list(map(int, input().split()))
+    b.append(p)
+for j in range(int(r2)):
+    m=list(map(int, input().split()))
+    c.append(m)
+array_1=numpy.array(b)
+array_2=numpy.array(c)
+print(numpy.concatenate((array_1, array_2), axis=0))
+    
+#input
+4 3 2
+
+1 2
+
+1 2
+
+1 2
+
+1 2
+
+3 4
+
+3 4
+
+3 4
+
+#output
+[[1 2]
+ [1 2]
+ [1 2]
+ [1 2]
+ [3 4]
+ [3 4]
+ [3 4]]
