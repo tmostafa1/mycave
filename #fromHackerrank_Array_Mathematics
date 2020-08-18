@@ -1,0 +1,42 @@
+#https://www.hackerrank.com/challenges/np-array-mathematics/problem
+import numpy
+ar, num= input().split()
+p=[]
+m=[]
+for i in range(int(ar)):
+    a=list(map(int, input().split()))
+    p.append(a)
+for j in range(int(ar)):
+    b=list(map(int, input().split()))
+    m.append(b)
+    
+s=numpy.array(p)
+t=numpy.array(m)
+print(s+t, s-t, s*t, s//t, s%t, s**t, sep='\n')
+
+#input
+2 4
+
+1 2 3 4
+
+1 2 3 4
+
+5 6 7 7
+
+5 6 7 7
+
+#output
+[[ 6  8 10 11]
+ [ 6  8 10 11]]
+[[-4 -4 -4 -3]
+ [-4 -4 -4 -3]]
+[[ 5 12 21 28]
+ [ 5 12 21 28]]
+[[0 0 0 0]
+ [0 0 0 0]]
+[[1 2 3 4]
+ [1 2 3 4]]
+[[    1    64  2187 16384]
+ [    1    64  2187 16384]]
+
+
