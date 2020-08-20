@@ -1,0 +1,16 @@
+##copied from hackerrank std during practice
+e=int(input())
+b=[]
+for i in range(0, e):
+    name=input()
+    score=float(input())
+    b.append([name, score])
+a=sorted(b, key=lambda x: x[1])
+for x in range(1, e):
+    if (a[x][1] != a[x-1][1]):
+        score=a[x][1]
+        break
+a=sorted(a)
+for x in range(e):
+    if (a[x][1]==score):
+        print (a[x][0])
