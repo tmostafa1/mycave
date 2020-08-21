@@ -1,0 +1,18 @@
+#https://www.hackerrank.com/challenges/nested-list/problem
+n=int(input())
+stu=[]
+for i in range(n):
+    stu.append([input(), float(input())])
+sor_stu=sorted(stu, key=lambda x: x[1])
+b=[]
+k=sor_stu[0]
+for i in sor_stu[1:]:
+    if i[-1] != k[-1]:
+        b.append(i)        
+e=[]        
+f=b[0]
+for j in b:
+    if j[-1]==f[-1]:
+        e.append(j)
+for i in sorted (e):
+    print(i[0])            
