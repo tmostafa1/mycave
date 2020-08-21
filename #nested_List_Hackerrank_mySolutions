@@ -1,4 +1,5 @@
 #https://www.hackerrank.com/challenges/nested-list/problem
+#the following one is mine, passed all the test cases
 n=int(input())
 stu=[]
 for i in range(n):
@@ -15,4 +16,24 @@ for j in b:
     if j[-1]==f[-1]:
         e.append(j)
 for i in sorted (e):
-    print(i[0])            
+    print(i[0])   
+
+#the following one is with modifications from sayeed. It is more precise and also passed the test cases
+
+n=int(input())
+stu=[]
+for i in range(n):
+    stu.append([input(), float(input())])
+sor_stu=sorted(stu, key=lambda x: x[1])
+b=[]
+k=sor_stu[0]
+for i in sor_stu[1:]:    
+    if i[-1] != k[-1]:
+        if b and b[-1][-1]!=i[-1]:
+            break
+        else:
+            b.append(i)
+
+for i in sorted(b):
+    print (i[0])
+
