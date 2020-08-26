@@ -1,0 +1,14 @@
+# A. match_ends
+# Given a list of strings, return the count of the number of
+# strings where the string length is 2 or more and the first
+# and last chars of the string are the same.
+words=['good', 'garg', 'bad', 'barb', 'cool', 'meem']
+def match_ends(words):
+    count=0
+    for i in words:
+        if len(i)>=2 and i[0]==i[-1]:
+            count+=1
+    print(count)  
+    #return count
+match_ends(words)
+
