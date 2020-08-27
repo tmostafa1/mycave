@@ -1,0 +1,18 @@
+# E. Given two lists sorted in increasing order, create and return a merged
+# list of all the elements in sorted order. You may modify the passed in lists.
+# Ideally, the solution should work in "linear" time, making a single
+# pass of both lists.
+def linear_merge(list1, list2):
+    result=[]
+    while len(list1) and len(list2):
+        if list1[0]<list2[0]:
+            result.append(list1.pop(0))
+        else: 
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    print(result)
+    #return result
+list1= [6, 7, 8, 9, 10]
+list2=[1, 5, 7, 8, 9]
+linear_merge(list1, list2)
