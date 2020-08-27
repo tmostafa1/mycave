@@ -1,0 +1,19 @@
+# D. MixUp
+# Given strings a and b, return a single string with a and b separated
+# by a space '<a> <b>', except swap the first 2 chars of each string.
+# e.g.
+#   'mix', pod' -> 'pox mid'
+#   'dog', 'dinner' -> 'dig donner'
+# Assume a and b are length 2 or more.
+def mix_up(a, b):
+    part1=a[:2]
+    part2=b[:2]
+    word1=part2+a[2:]
+    word2=part1+b[2:]
+    print('{} {}'.format(word1, word2))
+a='dog'
+b='dinner'
+mix_up(a, b)
+
+#output
+dig donner
