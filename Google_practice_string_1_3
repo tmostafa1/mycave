@@ -1,0 +1,18 @@
+# C. fix_start
+# Given a string s, return a string
+# where all occurences of its first char have
+# been changed to '*', except do not change
+# the first char itself.
+# e.g. 'babble' yields 'ba**le'
+# Assume that the string is length 1 or more.
+
+def fix_start(s):
+    b=s[1:]   
+    for i in b:
+          if i==s[0]:               
+              a=b.replace(i, '*')
+    print(s[0]+a)
+s='babble'
+fix_start(s)
+
+
