@@ -10,8 +10,8 @@ def fix_start(s):
     b=s[1:]   
     for i in b:
           if i==s[0]:               
-              a=b.replace(i, '*')
-    print(s[0]+a)
+              b=b.replace(i, '*')
+    print(s[0]+b)
 s='babble'
 fix_start(s)
 
