@@ -1,0 +1,39 @@
+###1. For the --count flag, implement a print_words(filename) function that counts
+#how often each word appears in the text and prints:
+#word1 count1
+#word2 count2
+#...
+
+#Print the above list in order sorted by word (python will sort punctuation to
+#come before letters -- that's fine). Store all the words as lowercase,
+#so 'The' and 'the' count as the same word.
+
+def print_words(filename):
+    d={}
+    text=open(filename)
+    text=text.read()
+    text=text.strip().lower().split()
+    for i in text:
+        d[i]=text.count(i)    
+    for k in sorted(d):
+        print(k, d[k])
+
+filename='F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice_latest\Google_python_exercises_my_solutions\small.txt'
+print_words(filename)
+
+#output
+-- 1
+are 3
+at 1
+be 3
+but 1
+coach 1
+football 1
+least 1
+need 1
+not 3
+should 1
+to 2
+used 1
+we 6
+what 3
