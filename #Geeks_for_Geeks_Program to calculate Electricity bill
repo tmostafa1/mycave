@@ -1,0 +1,33 @@
+#https://www.geeksforgeeks.org/program-to-calculate-electricity-bill/?ref=leftbar-rightbar
+
+n=int(input('enter your electricity usage: '))
+count=0
+if n>300:
+    first= int(n-300)
+    count+= int(first*25)
+    count+=int(100*10)
+    count += int(100*15)
+    count+=int(100*20)
+    print(count)
+elif  200<= n <=300:
+    second= int(n-200)
+    count += int(second*20)
+    count+= int(100*10)
+    count += int(100*15)
+    print(count)
+elif  100 <= n < 200:
+    third= int(n-100)
+    count+= int(third*15)
+    count +=int(100*10)
+    print(count)
+elif 1 <= n < 100:
+    count += int(n*10)
+    print(count)
+else:
+    print('you have entered a worng number')
+    
+#input
+enter your electricity usage: 250
+
+#output
+3500
