@@ -1,0 +1,15 @@
+#https://www.geeksforgeeks.org/program-to-calculate-profit-or-loss/?ref=rp
+
+def result (cost_price, selling_price):
+    if int (cost_price) > int(selling_price):
+        outcome = int(cost_price - selling_price)
+        print('{} {}'.format(outcome, 'loss'))
+    elif int(cost_price) < int(selling_price):
+        outcome = int(selling_price - cost_price)
+        print('{} {}'.format(outcome, 'profit'))
+cost_price=3125
+selling_price=1125
+result (cost_price, selling_price)
+   
+#output
+2000 loss
