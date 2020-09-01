@@ -1,0 +1,28 @@
+##practice on Google babyname exercise that works on a single html file
+"""
+  Given a file name for baby.html, returns a list starting with the year string
+  followed by the name-rank strings in alphabetical order.
+  ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
+  """
+import re
+filename='D:\\baby.txt'
+text=open(filename, 'r')
+lis=[]
+my_text=text.read()
+m=re.search(r'Popularity in ([0-9]{4})(?=<)', my_text)
+year=m.group(1)
+lis.append(year)
+mydic={}
+#pattern=re.findall(r'(?<=<td>)[\d]+(?=</td>)(?<=<td>)\w+(?=</td>)(?<=<td>)\w+(?=</td>)', my_text)
+pattern=re.findall(r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>', my_text)
+for elements in pattern:
+  (rank, boyname, girlname)=elements
+  if boyname not in mydic:
+    mydic[boyname]=rank
+  if girlname not in mydic:
+    mydic[girlname]=rank
+sor_mydic= sorted(mydic.keys())
+
+for i in sor_mydic:
+  lis.append(i+' '+mydic[i])
+print(lis)
