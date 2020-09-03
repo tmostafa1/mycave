@@ -1,0 +1,23 @@
+# E. not_bad
+# Given a string, find the first appearance of the
+# substring 'not' and 'bad'. If the 'bad' follows
+# the 'not', replace the whole 'not'...'bad' substring
+# with 'good'.
+# Return the resulting string.
+# So 'This dinner is not that bad!' yields:
+# This dinner is good!
+def not_bad(s):
+    f=s.find('not')
+    g=s.find('bad')
+    if g>f:
+        b=s.replace(s[f:g+3], 'good', 1)
+        print(b)
+    
+    #pattern=r'\w*\s*not\s\w*\sbad\w*'
+   # if pattern in s:
+       
+s='This dinner is not that bad!'
+not_bad(s)
+    
+#output
+This dinner is good!
