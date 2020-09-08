@@ -1,0 +1,35 @@
+"""Mimic pyquick exercise -- optional extra exercise.
+Google's Python Class
+
+Read in the file specified on the command line.
+Do a simple split() on whitespace to obtain all the words in the file.
+Rather than read the file line by line, it's easier to read
+it into one giant string and split it once.
+
+Build a "mimic" dict that maps each word that appears in the file
+to a list of all the words that immediately follow that word in the file.
+The list of words can be be in any order and should include
+duplicates. So for example the key "and" might have the list
+["then", "best", "then", "after", ...] listing
+all the words which came after "and" in the text.
+We'll say that the empty string is what comes before
+the first word in the file."""
+import random
+import sys
+
+
+def mimic_dict(filename):
+    text=open(filename)
+    text=text.read()
+    my_text=text.split()
+    my_dic={}
+    for i in my_text:
+        m=my_text.index(i)
+        my_dic[i]=my_text[m+1:]
+    print(my_dic)
+filename='F:\\OneDriveGSU\\OneDrive - Georgia State University\\Python_practice\\google-python-exercises\\google-python-exercises\\basic\\small.txt'
+mimic_dict(filename)
+
+#output
+{'We': ['are', 'not', 'what', 'we', 'should', 'be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'are': ['not', 'what', 'we', 'should', 'be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'not': ['what', 'we', 'should', 'be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'what': ['we', 'should', 'be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'we': ['should', 'be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 
+'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'should': ['be', 'We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'be': ['We', 'are', 'not', 'what', 'we', 'need', 'to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'need': ['to', 'be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'to': ['be', 'But', 'at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'But': ['at', 'least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'at': ['least', 'we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'least': ['we', 'are', 'not', 'what', 'we', 'used', 'to', 'be', '--', 'Football', 'Coach'], 'used': ['to', 'be', '--', 'Football', 'Coach'], '--': ['Football', 'Coach'], 'Football': ['Coach'], 'Coach': []}
