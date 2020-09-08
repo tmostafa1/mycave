@@ -24,9 +24,6 @@ def front_back(a, b):
         b_back=b[n+1:]
     print(a_front+b_front+a_back+b_back)
         
-    #half_cut(a)
-    #half_cut(b)
-    #print(front+front+back+back)
 a='moina'
 b='belan'
 front_back(a, b)
