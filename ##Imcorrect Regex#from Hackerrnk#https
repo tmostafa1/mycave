@@ -1,11 +1,14 @@
 ##Imcorrect Regex#from Hackerrnk#https://www.hackerrank.com/challenges/incorrect-regex/problem
-# it is giving wrong output. so something wrong with the code
-import re
-n=int(input())
-for i in range(n):
-    myPattern=input()
-    pattern=r'^([a-bA-B0-9]|.|\w)[*|+|?]|{[1-9]-,}[@$=\[\]\(\)\+\*\?%&#]*$'
-    print(bool(re.search(pattern, myPattern)))
+#both the following solutions work
+# import re
+for i in range(int(input())):
+    p=input()
+    try:
+        re.compile(p)
+        print('True')
+    except re.error:
+        print('False')
+
  #input
  1
 
