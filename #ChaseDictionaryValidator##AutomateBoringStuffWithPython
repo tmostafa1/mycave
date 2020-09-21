@@ -1,0 +1,35 @@
+#https://automatetheboringstuff.com/2e/chapter5/
+##Chase_Dictionary_Validator
+import re
+b=[]
+def ValidChessBoard(my_dict):
+    for i in my_dict.keys():
+        pattern1=r'^[1-8][a-h]$'
+        m= re.search(pattern1, i)
+        if not m:
+            return False
+    count=0
+    for j in my_dict.values():
+        if 'bking' in j or 'wking' in j:
+            count +=1
+        if count >2:
+            return False
+    item1 =0
+    item2=0
+    item3=0
+    for j in my_dict.values():
+        pattern2= r'^b[a-z]+$'
+        pattern3= r'^w[a-z]+$'
+        pattern4=r'^[b|w]pawn$'
+        if re.search (pattern2, j):
+            item1 += 1
+        if re.search (pattern3, j):
+            item2 += 1
+        if re.search (pattern4, j):
+            item3 +=1
+        if item1 > 16 or item2 > 16 or item3 > 8:
+            return False 
+    return True
+my_dict= {'1h': 'bking', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '3e': 'wking'}
+print(ValidChessBoard(my_dict))
+
