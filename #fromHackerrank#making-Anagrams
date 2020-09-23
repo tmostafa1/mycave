@@ -1,0 +1,20 @@
+##https://www.hackerrank.com/challenges/making-anagrams/problem
+def making_anagrams(s1, s2):
+    # Complete this function
+    k=[c for c in s1]
+    l=list()
+    for m in s2:
+        if m in k:
+            k.remove(m)
+        else:
+            l.append(m)
+    
+    
+    return (len(k)+len(l))
+
+s1='fcrxzwscanmligyxyvym'
+s2= 'jxwtrhvujlmrpdoqbisbwhmgpmeoke'
+print(making_anagrams(s1, s2))
+
+#output
+30
