@@ -14,3 +14,24 @@ display_inventory(b)
 ('dagger', 1)
 ('arrow', 12)
 total number of items:62
+
+##another version of the solution:
+def displayInventory(stuff):
+    count=0
+    print('Inventory:')
+    for k, v in stuff.items():
+        print( v, k)
+        count += v
+    print('Total number of items: '+ str(count))
+
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+displayInventory(stuff)
+
+#output
+Inventory:
+1 rope
+6 torch
+42 gold coin
+1 dagger
+12 arrow
+Total number of items: 62
