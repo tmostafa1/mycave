@@ -1,0 +1,28 @@
+#https://www.hackerrank.com/challenges/alternating-characters/problem
+def alternatingCharacters(s):
+    c=[]
+    m=len(s)
+    for i in range(0, m-1):
+        if s[i]==s[i+1]:
+            c.append(s[i])
+    return len(c)
+if __name__ == "__main__":
+    n=int(input())
+    for i in range(n):
+        s=input()
+        print(alternatingCharacters(s))
+    
+#input
+5
+AAAA
+BBBBB
+ABABABAB
+BABABA
+AAABBB
+
+#output
+3
+4
+0
+0
+4
