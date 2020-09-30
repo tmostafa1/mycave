@@ -1,0 +1,22 @@
+def beautifulBinaryString(b):
+    return b.count('010')
+b=input()
+print(beautifulBinaryString(b))
+    
+#I wrote the following code first but it did not pass all the test cases
+#def beautifulBinaryString(b):
+    #m=len(b)
+    #count=0
+    #for i in range(0, m-1):
+     #   if b[i:i+3]=='010':
+      #      count+=1
+    #if count==0:
+    #    return 0
+    #else: 
+    #    return count-1
+    
+ #input
+  0100101010
+#output
+3
+
