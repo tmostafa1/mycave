@@ -1,0 +1,20 @@
+#https://www.hackerrank.com/challenges/most-commons/problem
+import itertools
+p=input()
+b={}
+for i in p:
+    a=p.count(i)
+    b[i]=a
+m=sorted(b.items(), key= lambda x: x[1], reverse=True)
+j=[]
+for k, v in itertools.groupby(m, lambda x: x[1]):
+    j.extend(sorted(v))
+for i in j[:3]:
+    print('{} {}'.format(i[0], i[-1]))
+    
+#input
+aabbbccde
+#output
+b 3
+a 2
+c 2
