@@ -1,0 +1,15 @@
+##https://www.hackerrank.com/challenges/python-string-split-and-join/problem
+def split_and_join(line):   
+    line1=line.split()
+    line2='-'.join(line1)
+    return line2
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+
+##input
+this is a string
+##output
+this-is-a-string
