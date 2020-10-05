@@ -1,0 +1,17 @@
+#https://www.hackerrank.com/challenges/birthday-cake-candles/problem
+n=int(input())
+p=input().split()
+q=sorted(p, reverse=True)
+m=q[0]
+b=[]
+for i in range(0, len(q)):
+    if q[i]==m:
+        b.append(q[i])
+print(len(b))
+
+#input
+4
+3 2 1 3
+
+#output
+2
