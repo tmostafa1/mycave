@@ -1,0 +1,27 @@
+#https://www.hackerrank.com/challenges/time-conversion/problem?h_r=next-challenge&h_v=zen
+def timeConversion(s):
+    my_lis=[i for i in s]
+    if my_lis[0]=='1' and my_lis[1]=='2' and my_lis[-2]=='A':
+        my_lis[0]='0'
+        my_lis[1]='0'
+        return ''.join(my_lis[:-2])
+    elif my_lis[-2]=='A':
+        return ''.join(my_lis[:-2])
+    elif my_lis[-2]=='P' and my_lis[0]=='1' and my_lis[1]=='2':
+        return ''.join(my_lis[:-2])
+    elif my_lis[-2]=='P':
+        a=''.join(my_lis[:2])
+        b=str(int(a)+12)
+        del my_lis[-2:]
+        del my_lis[1]
+        my_lis[0]=b
+        return ''.join(my_lis)
+if __name__ == "__main__":
+    s=input()
+    print(timeConversion(s))
+
+#input
+12:40:22AM
+
+#output
+00:40:22
