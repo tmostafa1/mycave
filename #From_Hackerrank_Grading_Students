@@ -1,0 +1,60 @@
+#https://www.hackerrank.com/challenges/grading/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+
+def grading_students(grades):
+    lis=[]
+    for i in grades:
+        if int(i)<38:
+            lis.append(int(i))
+        elif int(i) >=38 and int(i[-1])==5:
+            lis.append(int(i))
+        elif int(i) >=38 and int(i[-1])<5:
+            t=int(5)-int(i[-1])
+            if t< 3:
+                j=int(i)+t
+                lis.append(j)
+            else: 
+                lis.append(int(i))
+        elif int(i) >=38 and 5<int(i[-1])<10:
+            t=int(10)-int(i[-1])
+            if t<3:
+                j=int(i)+t
+                lis.append(j)
+            else:
+                lis.append(int(i))
+    return lis
+if __name__=='__main__':
+    n=int(input().strip())
+    grades=[]
+    for i in range(n):
+        p=input().strip()
+        grades.append(p)
+    result=grading_students(grades)
+    print(result)
+    
+#input
+ 23
+80
+96
+18
+73
+78
+60
+60
+15
+45
+15
+10
+5
+46
+87
+33
+60
+14
+71
+65
+2
+5
+97
+0
+##output
+[80, 96, 18, 75, 80, 60, 60, 15, 45, 15, 10, 5, 46, 87, 33, 60, 14, 71, 65, 2, 5, 97, 0]
