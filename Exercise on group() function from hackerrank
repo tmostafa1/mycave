@@ -13,3 +13,12 @@ def character(strin):
 character('Hackerrank')
 #Output:
 r
+
+##another solution of the above
+import re
+s=input()
+m=re.search(r'\W*([0-9a-zA-Z]{1})\1+', s)
+if m:
+    print(m.group(1))
+else: 
+    print('-1')
