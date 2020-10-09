@@ -1,0 +1,32 @@
+##https://www.hackerrank.com/challenges/matrix-script/problem?h_r=next-challenge&h_v=zen
+import re
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+for i in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+text=[]
+for i in range(m):
+    for j in matrix:
+        text.append(j[i])
+cl_text=''.join(text)
+pattern=r'(?<=[a-zA-Z0-9])\W+(?=[a-zA-Z0-9])'
+my_text=re.sub(pattern, ' ', cl_text)
+f_text=re.sub(r'\s{2,}', ' ', my_text)
+
+print(f_text)
+
+##input
+7 3
+Tsi
+h%x
+i #
+sM
+$a
+#t%
+ir!
+
+##Output:
+This is Matrix# %!
