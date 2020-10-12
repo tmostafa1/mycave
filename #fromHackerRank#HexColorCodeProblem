@@ -11,6 +11,21 @@ for i in range(n):
 for i in lis:
     print('\n'.join(i))
     
+
+##another solution of the above
+import re
+lis=[]
+for i in range(int(input())):
+    p=input()
+    pattern=r'(?<!^)#[0-9a-fA-F]{3,6}(?!$)'
+    match=re.findall(pattern, p)
+    if len(match)!=0:
+        lis.append(match)
+my_lis=[''.join(j) for i in lis for j in i]
+print('\n'.join (my_lis))
+
+
+
 #input
 11
 #BED
@@ -32,3 +47,5 @@ for i in lis:
 #fff
 #ABC
 #fff
+
+
