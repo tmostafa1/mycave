@@ -14,3 +14,15 @@ S='escape special characters'
 vowel_finder(S)
 #output:
 ia
+
+##another version of the above code
+import re
+p=input()
+pattern=r'(?<=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])[aeiouAEIOU]{2,}(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])'
+m=re.findall(pattern, p)
+if m:
+    for i in m:
+        print(i)
+else:
+    print('-1')
+
