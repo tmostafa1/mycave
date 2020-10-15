@@ -1,0 +1,17 @@
+##https://www.hackerrank.com/challenges/re-split/problem
+import re
+p=input()
+pattern=r'(?<=[0-9])\W+(?=[0-9])'
+m=re.split(pattern, p)
+for i in m:
+    print(i)
+
+#input
+100,000,000.000
+
+#output
+100
+000
+000
+000
+
