@@ -1,0 +1,21 @@
+# Complete the miniMaxSum function below.
+#https://www.hackerrank.com/challenges/mini-max-sum/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def miniMaxSum(arr):
+    sor_asc=sorted(arr)
+    sor_asc1=sor_asc[1:]
+    sum_1=sum(sor_asc1)
+    sor_des=sorted(arr, reverse=True)
+    sor_des2=sor_des[1:]
+    sum_2=sum(sor_des2)
+    print('{} {}'.format(sum_2, sum_1))
+
+if __name__ == '__main__':
+    arr = list(map(int, input().rstrip().split()))
+
+    miniMaxSum(arr)
+    
+  #input
+  1 2 3 4 5
+  
+  #output
+10 14
