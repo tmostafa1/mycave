@@ -1,0 +1,30 @@
+#https://www.hackerrank.com/challenges/plus-minus/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def plusMinus(arr):
+    pos=[]
+    neg=[]
+    zero=[]
+    for i in arr:
+        if i >0:
+            pos.append(i)
+        elif i==0:
+            zero.append(i)
+        else:
+            neg.append(i)
+    print('{:.6f}'.format(len(pos)/n))
+    print('{:.6f}'.format(len(neg)/n))
+    print('{:.6f}'.format(len(zero)/n))
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
+
+#input
+6
+-4 3 -9 0 4 1
+#output
+0.500000
+0.333333
+0.166667
