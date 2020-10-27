@@ -1,0 +1,18 @@
+import re
+def my_func(text, xt=None):
+    first_str=text
+    sub_str=xt
+    if sub_str==None:
+        return first_str.strip()
+    else:
+        pattern=re.compile(sub_str)
+        new=re.sub(pattern, '', first_str)
+        #new=first_str.replace(sub_str, '')
+        return new
+    
+text='iloveyou'
+xt='you'
+print(my_func(text, xt))
+
+##output
+ilove
