@@ -1,4 +1,18 @@
 #https://www.hackerrank.com/challenges/no-idea/problem
+##my solution
+arr, test= input().split()
+array=input().split()
+setA=set(input().split())
+setB=set(input().split())
+count=0
+for i in array:
+    if i in setA:
+        count+=1
+    elif i in setB:
+        count-=1
+print(count)
+
+##another solution
 
 arr, test= input().split()
 array=input().split()
