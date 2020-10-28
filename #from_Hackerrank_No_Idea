@@ -1,0 +1,15 @@
+#https://www.hackerrank.com/challenges/no-idea/problem
+
+arr, test= input().split()
+array=input().split()
+setA=set(input().split())
+setB=set(input().split())
+print(sum((i in setA)-(i in setB) for i in array))
+
+##input
+3 2
+1 5 3
+3 1
+5 7
+##output
+1
