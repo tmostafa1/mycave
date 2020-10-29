@@ -1,0 +1,24 @@
+##https://www.hackerrank.com/challenges/itertools-combinations-with-replacement/problem
+from itertools import combinations_with_replacement
+string, k= input().split()
+sor_string=sorted(string)
+my_output=list(combinations_with_replacement(sor_string, int(k)))
+for i in my_output:
+    output=''.join(i)
+    print(output)
+    
+ #input
+ HACK 2
+ 
+ #Output
+AA
+AC
+AH
+AK
+CC
+CH
+CK
+HH
+HK
+KK
+P
