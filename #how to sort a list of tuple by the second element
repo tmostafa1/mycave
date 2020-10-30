@@ -1,0 +1,3 @@
+##sorting a list of tuples by the second element of the tuples
+b=[('ruf', 34.5), ('asd', 56.7), ('wer', 20.5)]
+print(sorted(b, key=lambda x: x[1]))
