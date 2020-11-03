@@ -1,0 +1,10 @@
+###program to print duplicates from a list of integers
+sor_lis=sorted([3, 4, 6, 7, 4, 6, 9])
+my_lis=[]
+for i in range(0, len(sor_lis)-1):
+    if sor_lis[i]==sor_lis[i+1]:
+        my_lis.append((sor_lis[i],sor_lis[i+1]))
+print(my_lis)
+
+#output
+[(4, 4), (6, 6)]
