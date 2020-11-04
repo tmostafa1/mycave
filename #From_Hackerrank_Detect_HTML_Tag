@@ -1,0 +1,43 @@
+#https://www.hackerrank.com/challenges/detect-html-tags/problem
+import re
+lis=[]
+for i in range(int(input())):
+    p=input()
+    pattern=r'(?<=\<)[a-zA-Z0-9]+(?=\>|.)'
+    a=re.findall(pattern, p)
+    lis.append(a)
+my_lis=[i for item in lis for i in item]
+my_lis1=sorted(list(set(my_lis)))
+str_my_lis=';'.join(my_lis1)
+print(str_my_lis)
+
+#input
+11
+<div id="mp-other" style="padding-top:4px; padding-bottom:2px;">
+<h2><span class="mw-headline" id="Other_areas_of_Wikipedia">Other areas of Wikipedia</span></h2>
+<ul>
+<li><b><a href="/wiki/Wikipedia:Community_portal" title="Wikipedia:Community portal">Community portal</a></b>  Bulletin board, projects, resources and activities covering a wide range of Wikipedia areas.</li>
+<li><b><a href="/wiki/Wikipedia:Help_desk" title="Wikipedia:Help desk">Help desk</a></b>  Ask questions about using Wikipedia.</li>
+<li><b><a href="/wiki/Wikipedia:Local_Embassy" title="Wikipedia:Local Embassy">Local embassy</a></b>  For Wikipedia-related communication in languages other than English.</li>
+<li><b><a href="/wiki/Wikipedia:Reference_desk" title="Wikipedia:Reference desk">Reference desk</a></b>  Serving as virtual librarians, Wikipedia volunteers tackle your questions on a wide range of subjects.</li>
+<li><b><a href="/wiki/Wikipedia:News" title="Wikipedia:News">Site news</a></b>  Announcements, updates, articles and press releases on Wikipedia and the Wikimedia Foundation.</li>
+ia itself, including areas for technical issues and policies.</li>
+</ul>
+</div>
+a;b;div;h;li;span;ul
+PS F:\OneDriveGSU\OneDrive - Georgia State University\Python_practice_latest> & C:/Users/tmota/Anaconda3/python.exe "f:/OneDriveGSU/OneDrive - Georgia State University/Python_practice_latest/trial2-LAPTOP-9UT9STEC.py"
+11
+<div id="mp-other" style="padding-top:4px; padding-bottom:2px;">
+<h2><span class="mw-headline" id="Other_areas_of_Wikipedia">Other areas of Wikipedia</span></h2>
+<ul>
+<li><b><a href="/wiki/Wikipedia:Community_portal" title="Wikipedia:Community portal">Community portal</a></b>  Bulletin board, projects, resources and activities covering a wide range of Wikipedia areas.</li>
+<li><b><a href="/wiki/Wikipedia:Help_desk" title="Wikipedia:Help desk">Help desk</a></b>  Ask questions about using Wikipedia.</li>
+<li><b><a href="/wiki/Wikipedia:Local_Embassy" title="Wikipedia:Local Embassy">Local embassy</a></b>  For Wikipedia-related communication in languages other than English.</li>
+<li><b><a href="/wiki/Wikipedia:Reference_desk" title="Wikipedia:Reference desk">Reference desk</a></b>  Serving as virtual librarians, Wikipedia volunteers tackle your questions on a wide range of subjects.</li>
+<li><b><a href="/wiki/Wikipedia:News" title="Wikipedia:News">Site news</a></b>  Announcements, updates, articles and press releases on Wikipedia and the Wikimedia Foundation.</li>
+<li><b><a href="/wiki/Wikipedia:Village_pump" title="Wikipedia:Village pump">Village pump</a></b>  For discussions about Wikipedia itself, including areas for technical issues and policies.</li>
+</ul>
+</div>
+
+##output
+a;b;div;h2;li;span;ul
