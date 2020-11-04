@@ -4,6 +4,7 @@ lis=[]
 for i in range(int(input())):
     p=input()
     pattern=r'(?<=\<)[a-zA-Z0-9]+(?=\>|.)'
+    #pattern=r'(?<=\<)[a-zA-Z0-9]+' ##this pattern will also work fine because the purpose is to only idenitfy the tags
     a=re.findall(pattern, p)
     lis.append(a)
 my_lis=[i for item in lis for i in item]
