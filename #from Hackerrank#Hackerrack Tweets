@@ -12,8 +12,19 @@ for i in t:
         count+=1    
 print(count)
 
+##Another solution-a simpler approach Nov 2020
+import re
+text=[]
+for i in range(int(input())):
+    p=input()
+    text.append(p)
+my_text=' '.join(text)
+pattern=r'hackerrank'
+lis=re.findall(pattern, my_text, re.IGNORECASE)
+print(len(lis))
+
 #input
-6
+
 @HAckeRrANK mention house calm favourite complain
 #HackerrAnk ourselves
 he function customer
