@@ -1,0 +1,39 @@
+#https://www.hackerrank.com/challenges/service-lane/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+
+def serviceLane(n, cases):
+    ans=[]
+    for i in cases:
+        start=i[0]
+        end=i[-1]+1
+        relevant=list(width[start:end])
+        sor_lis=sorted(relevant)
+        fit=sor_lis[0]
+        ans.append(fit)
+    return ans
+
+if __name__ == '__main__':
+    nt = input().split()
+    n = int(nt[0])
+    t = int(nt[1])
+    width = list(map(int, input().rstrip().split()))
+    cases = []
+    for _ in range(t):
+        cases.append(list(map(int, input().rstrip().split())))
+    result = serviceLane(n, cases)
+    final='\n'.join(map(str, result))
+    print(final)
+    
+ #input
+ 5 5
+1 2 2 2 1
+2 3
+1 4
+2 4
+2 4
+2 3
+##output
+2
+1
+1
+1
+2
