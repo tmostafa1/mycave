@@ -1,0 +1,19 @@
+#regex practice
+# a regular expression to match a date string  
+# in the form of Month name followed by day number  
+
+def date(text):
+    import re
+    pattern= r'[A-Z][a-z]+\s+[0-9]+'
+    match=re.search(pattern, text)
+    if match:
+        print(match.group(0))
+
+if __name__== '__main__':
+    sent= input()
+    date(sent)
+    
+  #input
+  I was born on June 24
+  #output
+June 24
