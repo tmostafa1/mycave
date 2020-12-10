@@ -1,0 +1,35 @@
+##https://regexone.com/problem/matching_emails?
+import re
+
+def name_extractor(lis):
+    ans=[]
+    pattern= r'^\w+\.?\w+'
+    #pattern=r'^([\w\.]*)' #this pattern also works
+    for item in lis:
+        m=re.search(pattern, item)
+        if m:
+            ans.append((m.group(0)))
+    for i in ans:
+        print(i)
+if __name__=='__main__':
+    lis=[]
+    p=int(input())
+    for i in range(p):
+        email=input()
+        lis.append(email)
+    name_extractor(lis)
+
+#input
+5
+tom.riddle@hogwarts.com
+tom.riddle+regexone@hogwarts.com
+tom@hogwarts.eu.com
+potter@hogwarts.com
+harry@hogwarts.com
+
+#Output
+tom.riddle
+tom.riddle
+tom
+potter
+harry
