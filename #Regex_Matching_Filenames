@@ -1,0 +1,33 @@
+#https://regexone.com/problem/matching_filenames?
+import re
+def filename(lis):
+    pattern= r'^([a-z]+[\_\-\?]*[a-z]*[A-Z]*[0-9]*)\.(jpg|png|gif)$'
+    #pattern=^([a-z]+[\_\-\?]*[a-z]*[A-Z]*[0-9]*)\.(jpg|png|gif)$
+    for item in lis:
+        match=re.search(pattern, item)
+        if match:
+            print('{} {}'.format(match.group(1), match.group(2)))
+
+
+if __name__=='__main__':
+    lis=[]
+    for i in range(int(input())):
+        p=input()
+        lis.append(p)
+    filename(lis)
+
+##input
+8
+.bashprofile         
+workspace.doc
+img0912.jpg
+updated_img0912.png
+documentation.html
+favicon.gif
+img0912.jpg.tmp
+access.lock
+
+#Output
+img0912 jpg
+updated_img0912 png
+favicon gif
