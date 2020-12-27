@@ -1,0 +1,17 @@
+#https://regexone.com/problem/extracting_log_data?
+
+def extract_info(filename):
+    import re
+    pattern= r'^.+\.List\.([a-zA-Z]+)\(([a-zA-Z]+\.[a-z]+)\:(\d+)\)$'
+    match=re.search(pattern, filename)
+    if match:
+        print('{} {} {}'.format(match.group(1), match.group(2), match.group(3)))
+
+if __name__== '__main__':
+    filename=input()
+    extract_info(filename)
+
+##input
+E/( 1553):   at widget.List.fillFrom(ListView.java:709)
+##output
+fillFrom ListView.java 709
