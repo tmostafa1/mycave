@@ -1,0 +1,33 @@
+#https://regexone.com/problem/extracting_url_data?
+
+def parsing_url(data):
+    import re
+    pattern=r'^([a-z]+)\:\/\/([a-zA-Z0-9\_\-\.\?]+)\:?(\d*)\/.*$'
+    for i in data:
+        match=re.search(pattern, i)
+        if match:
+            print('{}, {}, {}'.format(match.group(1), match.group(2), match.group(3)))
+        else:
+            print('no match')
+if __name__== '__main__':
+    n=int(input())
+    data=[]
+    for i in range(n):
+        p=input()
+        data.append(p)
+    parsing_url(data)
+
+##input
+5
+ftp://file_server.com:21/top_secret/life_changing_plans.pdf
+https://regexone.com/lesson/introduction#section
+file://localhost:4040/zip_file
+https://s3cur3-server.com:9999/
+market://search/angry%20birds
+
+##output
+ftp, file_server.com, 21
+https, regexone.com,
+file, localhost, 4040
+https, s3cur3-server.com, 9999
+market, search,
