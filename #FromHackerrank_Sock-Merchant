@@ -1,0 +1,27 @@
+#https://www.hackerrank.com/challenges/sock-merchant/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def sock_merchant (n, ar):
+    set_ar=set(ar)
+    lis=[]
+    for i in set_ar:
+        p=int(ar.count(i))
+        if p%2==0:
+            lis.append(p//2)
+        elif p>1 and p%2!=0:
+            m=p-1
+            lis.append(m//2)
+        else:
+            continue
+    return sum(lis)
+
+if __name__=='__main__':
+    n=int(input())
+    ar=list(map(int, input().split()))
+    print(sock_merchant(n, ar))
+    
+    
+ ##input
+ 9
+10 20 20 10 10 30 50 10 20
+
+##output
+3
