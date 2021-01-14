@@ -1,0 +1,23 @@
+import re
+def email_extractor(lis):
+    pattern=r'[\.\?\-_\!@]*[a-zA-Z0-9]+[\.\?\-_\!@]*\w*@[a-zA-Z]+\.[a-z]{2,3}'
+    for item in lis:
+        m=re.search(pattern, item)
+        if m:
+            print(m.group(0))
+
+if __name__=='__main__':
+    lis=[]
+    for i in range(int(input())):
+        text=input()
+        lis.append(text)
+    email_extractor(lis)
+    
+ #input
+ 2
+my previous email was tamanna_mostafa@yahoo.com
+my email is tmostafabd@gmail.com
+
+#output
+tamanna_mostafa@yahoo.com
+tmostafabd@gmail.com
