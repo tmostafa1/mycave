@@ -1,0 +1,15 @@
+import xlrd 
+
+def replace_with_underscores(cell):
+    m=str(cell.value)
+    return m.replace(" ", "_")
+
+wb = xlrd.open_workbook("C:\\Users\\tmota\\Desktop\\Common_lit_trial\\Common_lit_data_extracted.xlsx")
+sh = wb.sheet_by_index(0)
+
+for row in sh.get_rows():
+    num = replace_with_underscores(row[0])
+    text = row[1].value
+    filename = "ID" + "-" + num + ".txt"
+    with open(filename, 'w') as f:
+        f.write(text) 
