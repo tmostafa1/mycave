@@ -1,0 +1,25 @@
+#https://www.hackerrank.com/challenges/bon-appetit/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def bill_division(not_ind, bill, money_chanrged):
+    e=bill[not_ind]
+    bill.remove(e)
+    actual_pay=sum(bill)/2
+    diff= int(money_chanrged-actual_pay)
+    if diff==0:
+        print('Bon Appetit')
+    else:
+        print(diff)
+
+if __name__== '__main__':
+    n= list(map(int, input().split()))
+    not_ind=n[-1]
+    bill=list(map (int, input().split()))
+    money_chanrged=int(input())
+    bill_division(not_ind, bill, money_chanrged)
+    
+ #input
+ 4 1
+3 10 2 9
+12
+
+#output
+5
