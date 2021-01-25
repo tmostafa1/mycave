@@ -1,0 +1,24 @@
+#https://www.hackerrank.com/challenges/the-birthday-bar/problem
+def birthday(s, d, m):
+    count=0
+    lenth=len(range(m))
+    for i in range(len(s)):
+        summation= sum(s[i:lenth+i])
+        if summation == d:
+            count+=1
+    print(count)
+
+if __name__ =='__main__':
+    n=int(input())
+    s= list(map(int, input().split()))
+    d, m= map(int, input().split())
+    birthday(s, d, m)
+    
+    
+ ##input
+ 6
+1 1 1 1 1 1
+3 2
+
+##output
+0
