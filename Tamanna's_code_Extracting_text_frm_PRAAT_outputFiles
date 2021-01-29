@@ -3,13 +3,13 @@ import os, sys
 import os.path 
 
 ##extracting texts from one file
-def extracting_selected_text(filepath, pattern):
+def extracting_selected_text(filepath):
     inp= open(filepath, 'r')
     lis2=[]
     lines=inp.readlines()
     for line in lines:
         line=line.strip()    
-        #pattern=r'^text\s=\s\"sounding(.+)\"'   
+        pattern=r'^text\s=\s\"sounding(.+)\"'   
         m=re.search(pattern, line)
         if m:
             a=m.group(1)
@@ -17,7 +17,7 @@ def extracting_selected_text(filepath, pattern):
     return ''.join(lis2)
 ##make/create a folder, read all the files in that folder, perform the function of "extracting_selected_text"
 ##on each file, save the new files to a different folder.
-def read_files_in_folder(folder_path, pattern):
+def read_files_in_folder(folder_path):
     parent_dir='F:\\'
     dir='new_D'
     path = os.path.join(parent_dir, dir) 
@@ -25,7 +25,7 @@ def read_files_in_folder(folder_path, pattern):
 
     for filename in os.listdir(folder_path): ##iterate over each file in the input folder
         filepath=os.path.join(folder_path, filename) # open in readonly mode
-        text= extracting_selected_text(filepath, pattern)
+        text= extracting_selected_text(filepath)
         fileN='F:\\new_D\\'+filename+'.txt'
         file=open(fileN, 'w')
         file.write(text)
@@ -34,9 +34,7 @@ def read_files_in_folder(folder_path, pattern):
 
 if __name__=='__main__':
     folder_path=input('please enter the folder path ')
-    pattern=input('please enter the regex pattern ')
-    read_files_in_folder(folder_path, pattern)
+    read_files_in_folder(folder_path)
 
-##Iinput
+##input
 'F:\\textgrid_files_with_transcriptions_T2_dialogic'
-r'^text\s=\s\"sounding(.+)\"' 
