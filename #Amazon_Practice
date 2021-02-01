@@ -1,0 +1,29 @@
+# a program that will reverse the order of consonants in a string but keep the order of the vowels the same (or reversing vowels but keeping consonants)
+
+def swap (lis, posx, posy):
+    lis[posx], lis[posy]= lis[posy], lis[posx]
+    return lis
+
+def reversed_str(text):
+    text_lis=[i for i in text]
+    end=len(text_lis)-1
+    for i in range(0, end): 
+        if text_lis[i] in  ('a', 'e', 'i', 'o', 'u'):
+            continue
+        for j in range(end, i, -1):
+            if text_lis[j] in ('a', 'e', 'i', 'o', 'u'):
+                continue
+            text_lis = swap(text_lis, i, j)
+            end = j-1
+            result=''.join(text_lis)
+            break
+    return result
+
+if __name__=='__main__':
+    text = input()
+    print(reversed_str(text))
+
+##input
+rythm
+##output
+mhtyr
