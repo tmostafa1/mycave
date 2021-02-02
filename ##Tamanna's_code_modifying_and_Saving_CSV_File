@@ -1,0 +1,35 @@
+##read a csv, pull a specific column (the first one), 
+# using regex to modify the value of each row in the column, 
+#write the modified column in a csv file 
+
+def modify_csv(filename):
+    import csv
+    import re
+    lis=[]
+    #with open('F:\\working_copy.csv', 'r') as text:
+    with open(filename, 'r') as text:
+        data=csv.reader(text)
+        for i in data:
+            text=i[0]
+            pattern= r'ID\-(\d+)\.0\.txt'
+            try:
+                match=re.search(pattern, text)
+                matched=match.group(1)
+                result=re.sub(r'ID\-\d+\.0\.txt', matched, text)
+                lis.append([result])
+            except:
+                result=None
+        
+    field=['Filename']
+    with open('F:\\working_copy_output.csv', 'w', newline='') as file:
+        output=csv.writer(file)
+        output.writerow(field)
+        output.writerows(lis)
+    
+if __name__=='__main__':
+    filename=input()
+    modify_csv(filename)
+    
+ ##input:
+ F:\working_copy.csv
+    
