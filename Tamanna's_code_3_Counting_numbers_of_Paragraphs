@@ -1,0 +1,32 @@
+##the following code shows the number of paragraphs for all the text files in a folder
+#steps
+#  open a folder, iterate through each text file in the folder, 
+# for each file, get the counts of paragraphs (with the function 'para_counting'), and save that as a list to a list
+#write a csv file and save the new index in that csv file
+import os, sys
+import os.path 
+import csv
+def para_counting (filename): ##the program for getting the number of paragraphs
+    #filename= 'E:\\extracted_data\\ID-400.0.txt'
+    with open(filename, 'r') as f:
+        text=f.read()
+        result=text.split('\n+')
+        for text in result:
+            m=text.count('\n')
+            return m+1
+def read_files_in_folder(folder_path):
+    lis=[]
+    for file in os.listdir(folder_path): ##iterate over each file in the input folder
+        filepath=os.path.join(folder_path, file) # create a path for each file in the folder
+        para_num= para_counting (filepath) #feed each filepath to the function for counting para number
+        lis.append([filepath, para_num]) #save the output to a list
+    fieldname=['para_num']  #decide the column header for the new csv
+    with open('F:\\para_num.csv', 'w', newline='') as sheet: #create a new csv file
+        output=csv.writer(sheet)  #create a writer instance
+        output.writerow(fieldname) #write the column
+        output.writerows(lis)  #write the rows
+if __name__=='__main__':
+    folder_path='E:\extracted_data'
+    read_files_in_folder(folder_path)
+    
+  
