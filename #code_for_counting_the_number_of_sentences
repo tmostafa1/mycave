@@ -1,0 +1,33 @@
+import spacy
+import csv
+import os
+import os.path
+nlp=spacy.load('en_core_web_sm')
+
+def counting_sen(filename): ##function for counting the sentences
+    lis=[]
+    with open(filename, 'r') as text:
+        text_read= text.read()
+        doc=nlp(text_read)
+        for sent in doc.sents:
+            lis.append(sent)
+    return len(lis)
+#filename= 'E:\\extracted_data\\ID-400.0.txt'
+#counting_sen(filename)
+def reading_folder(folder_path): ##funtion for reading each file in a folder and getting the sentence count of each file
+    result=[]
+    for file in os.listdir(folder_path): #reading each file in the folder
+        filepath=os.path.join(folder_path, file) #making a path for each file
+        sent_num=counting_sen(filepath) #feeding the filepath to the function for calculating sentence length
+        result.append([file, sent_num]) #appending the filenames and results to a list 
+    fieldname=['filename','sent_num'] #specifying the column heads
+    with open('F:\\sent_num.csv', 'w', newline='') as sheet: #writing a csv file
+        output=csv.writer(sheet) #creating a writer instance
+        output.writerow(fieldname) #writing the column names
+        output.writerows(result) #writing the row values
+
+if __name__=='__main__':
+    folder_path= 'E:\extracted_data' ##input folder
+    reading_folder(folder_path)
+    
+    
