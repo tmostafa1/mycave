@@ -1,0 +1,24 @@
+import pandas as pd
+df=pd.read_csv('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\DataFrame_variables_excluding_Outliers_norm_distred_only.csv')
+df2=pd.read_csv('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\Re__updates\\multicollinear_CL_readability_all_r.csv')
+lis=[]
+for index, rows in df2.iterrows():
+    ind=rows['variables']
+    lis.append(ind)
+#fullproof code 
+import csv
+head=[]
+res=[]
+for column_head, column_data in df.iteritems():
+    if column_head in lis:
+        #head[column_head]=column_data.values
+        head.append(column_head)
+        b=column_data.values
+        res.append(b)
+zipped=zip(*res)
+
+with open('F:\data_for_PCA_all_35.csv', 'w', newline='') as file:
+    #output=csv.writer(file, quoting=csv.QUOTE_ALL)
+    output=csv.writer(file)
+    output.writerow(head)
+    output.writerows(zipped)
