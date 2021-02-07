@@ -1,0 +1,22 @@
+##code for creating a text file (in a new folder) for each row in a csv file 
+import csv
+import os
+def extract_text(filepath):
+    #first create the new folder (in a directory) where the new txt files will be saved
+    parent_dir='F:\\' 
+    dir='122_texts'
+    path=os.path.join(parent_dir, dir)
+    os.mkdir(path) ##the new folder is created
+    ##extracting text from each row in the csv file and saving the text to a txt file in the new folder
+    with open(filepath, 'r') as data:
+        data_obj=csv.reader(data)
+        header=next(data_obj) ##avoiding the header row
+        if header != None:
+            for row in data_obj:
+                id=str(row[0]) #specifying the id
+                fileN='F:\\122_texts\\'+id+'.txt' #creating the path for a text file for text in each row
+                f=open(fileN, 'w') #open the new text file
+                f.write(row[1]) #write the relevant text in the file
+                f.close() #close it
+filepath='F:\\122_essays_for_NLP_frm_Jordan.csv'
+extract_text(filepath)
