@@ -1,0 +1,27 @@
+#https://www.hackerrank.com/challenges/electronics-shop/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def getMoneySpent(keyboard, mouse, budget):
+    result=[]
+    for i in keyboard:
+        for j in mouse:
+            m=i+j
+            if m <= budget:
+                result.append(m)
+    if result:
+        return max(result)
+    else:
+        return -1
+
+if __name__=='__main__':
+    b=list(map(int, input().split()))
+    budget=b[0]
+    keyboard=list(map(int, input().split()))
+    mouse=list(map(int, input().split()))
+    print(getMoneySpent(keyboard, mouse, budget))
+    
+    
+#input
+5 1 1
+4
+5
+#output
+-1
