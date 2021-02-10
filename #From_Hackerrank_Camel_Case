@@ -1,0 +1,16 @@
+#https://www.hackerrank.com/challenges/camelcase/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+
+def counting_words(text):
+    count=1
+    for i in text:
+        if i.isupper():
+            count+=1
+    return count
+if __name__=='__main__':
+    text=input()
+    print(counting_words(text))
+    
+#input
+saveChangesInTheEditor
+#output
+5
