@@ -1,0 +1,13 @@
+#code for saving a pandas dataframe to a csv file. In this code, 'df1' is the pandas dataframe
+import csv
+clos=['Filename', 'bt_model$coefficients']
+lis=[]
+for i, j in df1.itertuples(index=False): #iterating over the rows
+    lis.append([i, j]) #appending each row as a list to a list (because 'writerows' accepts a list of lists)
+
+with open('F:\\new.csv', 'w', newline='') as f:    
+    write=csv.writer(f)
+    write.writerow(clos) #writing the column header
+    write.writerows(lis) #writing the rows
+    f.close()
+  
