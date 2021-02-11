@@ -1,0 +1,12 @@
+import re
+def valid_email(email):
+    pattern=r'^[\.\?\_\-\*\!\#\$]*\w+[\.\?\_\-\*\!\#\$]*\w*@\w+\.[a-zA-Z]+\.*[a-zA-Z]*$'
+    match=re.search(pattern, email)
+    if match:
+        print(match.group(0))
+        print('valid')
+    else:
+        print('not valid')
+
+email=input('please enter your email: ')
+valid_email(email)
