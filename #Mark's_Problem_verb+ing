@@ -1,0 +1,21 @@
+#can you write a script that converts the bare form of an English verb to its -ing form. Think about edge cases! 
+def verb(text):
+    vowel='aeiou'
+    #cons='bcdfghjklmqrstvwxyz'
+    stop='np'
+    if text[-1]=='e' and text[-2] not in vowel:
+        text_lis=[i for i in text]
+        text_lis.pop()
+        re_text=''.join(text_lis)
+        print(re_text+'ing')
+    elif text[-2] in vowel and text[-1] in stop:
+        added=text[-1]
+        print(text+added+'ing')
+    else:
+        print(text+'ing')
+
+
+text='jump'
+verb(text)
+        
+        
