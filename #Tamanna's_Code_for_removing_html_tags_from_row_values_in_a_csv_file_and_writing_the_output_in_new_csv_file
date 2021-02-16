@@ -1,0 +1,21 @@
+#code for removing html tags from row values in a csv file and writing the output in a new csv file 
+import csv
+import re
+
+with open('F:\\practice_1.csv', 'r') as file, open('F:\\practice_1_res.csv', 'w', newline='') as out:
+    text=csv.reader(file)
+    output=csv.writer(out)
+    cols=next(text) #assigning the colum headers to te variable 'cols'
+    cols.append('Cleaned_text') #adding a new column header to the file
+    result=[]
+    for row in text: #iterating through each row in the file. Each row returns a list of values
+        data=row[1] #identifying the data (using the index value) that I need to work on 
+        pattern=r'\>(.+)\<' #specifying the regex pattern
+        match=re.search(pattern, data) #looking for a match
+        if match:
+            row.append(match.group(1)) #if match found, append the extracted text to the row
+            result.append(row) #append the row(which is a list) to another list 'result' because 'writerows' requires list of lists
+    
+    output.writerow(cols) #write the column headers
+    output.writerows(result) #write the column values
+    
