@@ -1,0 +1,30 @@
+#Code for iterating through each item in the list and iterating through each colum in the data frame. 
+#If column header in lis[0], multiply column values with lis[1]
+
+import csv
+import pandas as pd
+
+#df1=pd.read_csv('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\Files_fr_Component_Scores\\DataFrame_1_For_Component_1_PCA.csv')
+
+def changing_col_values(filepath, lis):
+    df1=pd.read_csv(filepath) #read the csv
+    header=[]
+    res=[]
+    for col_head, col_data in df1.iteritems(): #iterating through column head and column data
+        for i in lis: #iterating through each item in the list
+            if col_head in i[0]: 
+                new_name=col_head+'_Weighted'
+                header.append(new_name)
+                n=float(i[1])
+                new_arr=[float(j)*n for j in col_data.values] #multiplying each column value with factor loading
+                res.append(new_arr) #appending to another list
+    zipped=zip(*res)
+    with open('F:\\factor_1_transformed.csv', 'w', newline='') as file:
+        output=csv.writer(file)
+        output.writerow(header)
+        output.writerows(zipped)
+
+        
+filepath='F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\Files_fr_Component_Scores\\DataFrame_1_For_Component_1_PCA.csv'
+lis=[['Affil_GI', '0.486'], ['aoe_inverse_linear_regression_slope', '-0.563'], ['av_dobj_deps_NN', '-0.37'], ['av_nominal_deps_NN', '-0.624'], ['av_nsubj_deps_NN', '-0.377'], ['basic_nfunction_types', '0.558'], ['BG_Mean', '-0.499'], ['ccomp_per_cl', '0.395'], ['Dav_GI', '0.553'], ['eat_tokens', '-0.457'], ['eat_tokens_FW', '-0.585'], ['eat_types', '-0.641'], ['fic_av_lemma_freq_log', '0.596'], ['Freq_N_CW', '0.379'], ['Freq_N_PH_CW', '0.512'], ['LD_Mean_RT_SD_CW', '-0.429'], ['lexical_density_tokens', '-0.499'], ['Log_Freq_HAL', '0.463'], ['MRC_Familiarity_CW', '0.63'], ['OG_N_CW', '0.726'], ['poss_all_nominal_deps_NN_struct', '0.478'], ['prep_all_nominal_deps_NN_struct', '-0.641'], ['prep_per_cl', '-0.504'], ['prep_pobj_deps_NN_struct', '-0.458'], ['Socrel_GI', '0.418'], ['Phono_N_FW', '0.734'], ['nsubj_per_cl', '0.474'], ['MRC_Meaningfulness_AW', '0.75'], ['Submit_GI', '0.424'], ['SUBTLEXus_Freq_CW', '0.59'], ['SUBTLEXus_Range_CW_Log', '0.888'], ['Try_GI', '0.529'], ['USF_CW', '0.573'], ['WN_SD_CW', '-0.629'], ['WN_SD_FW', '-0.448']]
+changing_col_values(filepath, lis)
