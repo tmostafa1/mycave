@@ -1,0 +1,15 @@
+#https://www.hackerrank.com/challenges/pangrams/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def pangram(s):
+    text=s.strip().lower()
+    alphabet='abcdefghijklmnopqrstuvwxyz'
+    unique=set(text)
+    for i in alphabet:
+        if i not in unique:
+            return 'not pangram'        
+    return 'pangram'
+          
+text='We promptly judged antique ivory buckles for the  prize' 
+print(pangram(text))
+
+#output
+not pangram
