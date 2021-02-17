@@ -11,7 +11,9 @@ def changing_col_values(filepath, lis):
     header=[]
     res=[]
     for col_head, col_data in df1.iteritems():
-        if col_head in [i[0] for i in lis]:
+        for i in lis:
+            if col_head in i[0]:
+        #if col_head in [i[0] for i in lis]:
             new_name=col_head+'_Weighted'
             header.append(new_name)
             n=float(i[1]) #turning the factor loading into a float
