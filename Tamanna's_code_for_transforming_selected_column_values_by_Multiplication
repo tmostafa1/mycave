@@ -7,19 +7,18 @@ import pandas as pd
 #df1=pd.read_csv('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\Files_fr_Component_Scores\\DataFrame_1_For_Component_1_PCA.csv')
 
 def changing_col_values(filepath, lis):
-    df1=pd.read_csv(filepath) #read the csv
+    df1=pd.read_csv(filepath)
     header=[]
     res=[]
-    for col_head, col_data in df1.iteritems(): #iterating through column head and column data
-        for i in lis: #iterating through each item in the list
-            if col_head in i[0]: 
-                new_name=col_head+'_Weighted'
-                header.append(new_name)
-                n=float(i[1])
-                new_arr=[float(j)*n for j in col_data.values] #multiplying each column value with factor loading
-                res.append(new_arr) #appending to another list
+    for col_head, col_data in df1.iteritems():
+        if col_head in [i[0] for i in lis]:
+            new_name=col_head+'_Weighted'
+            header.append(new_name)
+            n=float(i[1]) #turning the factor loading into a float
+            new_arr=[float(j)*n for j in col_data.values]  #multiplying each column value with respective factor loading
+            res.append(new_arr)
     zipped=zip(*res)
-    with open('F:\\factor_1_transformed.csv', 'w', newline='') as file:
+    with open('F:\\factor_1_transformed_updated.csv', 'w', newline='') as file:
         output=csv.writer(file)
         output.writerow(header)
         output.writerows(zipped)
