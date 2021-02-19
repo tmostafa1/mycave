@@ -1,0 +1,33 @@
+#https://www.hackerrank.com/challenges/caesar-cipher-1/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+def cipher(s, k):
+    s_lis=[i for i in s]
+    letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    letter=[i for i in letters]    
+    for i in range(len(s_lis)):
+        if s_lis[i] in letter:
+            p=letter.index(s_lis[i])
+            new_ind=(p+k)%26
+            if s_lis[i].isupper():
+                s_lis[i]=letter[new_ind].upper()
+            else:
+                s_lis[i]=letter[new_ind]
+    
+    result=''.join(s_lis)
+    return result
+
+if __name__=='__main__':
+    n=int(input())
+    s=input()
+    k=int(input())
+    print(cipher(s, k))
+
+
+#input
+11
+middle-Outz
+2
+
+#output
+okffng-Qwvb
+
+
