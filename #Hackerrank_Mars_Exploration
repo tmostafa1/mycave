@@ -1,0 +1,20 @@
+#https://www.hackerrank.com/challenges/mars-exploration/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+ 
+def marsExploration(s):
+    count=0
+    n=3
+    text=[s[i:i+n] for i in range(0, len(s), n)]
+    for i in text:
+        if i[0]!= 'S':
+            count+=1
+        if i[1]!='O':
+            count +=1
+        if i[2] != 'S':
+            count +=1
+    return count
+s='SOSSOSSOS'
+print(marsExploration(s))
+
+#Output
+0
+
