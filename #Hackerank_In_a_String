@@ -1,0 +1,25 @@
+#https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign&h_r=next-challenge&h_v=zen
+import re
+def hackerrankInString(s):
+    pattern=r'.*h.*a.*c.*k.*e.*r.*r.*a.*n.*k.*'
+    match=re.search(pattern, s)
+    if match:
+        return 'YES'
+    else:
+        return 'NO'
+
+if __name__=='__main__':
+    n=int(input())
+    for i in range(n):
+        s=input()
+        print(hackerrankInString(s))
+        
+  #input
+  2
+hhaacckkekraraannk
+rhbaasdndfsdskgbfefdbrsdfhuyatrjtcrtyytktjjt
+
+
+#Output
+YES
+NO
