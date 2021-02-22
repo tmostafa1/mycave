@@ -15,7 +15,8 @@ def make_new_df(inp, outp, lis):
         for row in data1:        
             if row[0] not in lis:
                 writer.writerows(itertools.islice([row], 0, len(fields)))
-            #result.append(list(itertools.islice(data1, 0, 34)))
+                #output.writerows([row]) ##this code also works
+           
     
 inp = 'F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\dataframe_2_for_Regress_all_Final_with_min_effect_size_zupyter.csv'  
 outp='F:\\dataframe_for_Regression_with_min_effect_size_No_Outliers_Trial.csv'
