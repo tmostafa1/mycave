@@ -1,0 +1,14 @@
+#Using Pandas to remove outliers (specific rows)
+import csv
+import pandas as pd
+head=[]
+#following is the list of outliers
+lis=['2165', '2442', '2728', '2966', '3141', '3145', '3188', '4861', '4928', '4974', '5096', '5316', '5389', '5685', '5951', '6054', '7243', '1930', '2019', '2023', '2784', '2810', '2846', '2865', '3102', '3115', '3286', '3975', '4369', '4397', '4689', '4758', '4862', '4880', '4885', '4910', '4941', '4983', '5030', '5033', '5051', '5113', '5123', '5134', '5152', '5153', '5154', '5161', '5204', '5213', '5220', '5227', '5243', '5273', '5287', '5331', '5353', '5358', '5374', '5385', '5417', '5483', '5517', '5553', '5604', '5895', '6050', '6327', '6930']
+df=pd.read_csv('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Attachments\\Spring2021_RA\\DataFrame_2_PCA_Components_Labelled_forAll.csv')
+
+for i in range(0, 4794):
+    b=df['Filename'][i]
+    if str(b) in lis:        
+        df.drop(i, axis=0, inplace=True) #'inplace' is required to make changes in the original dataframe
+      
+df.to_csv('F:\\practice3.csv', encoding='utf-8', index=False) #writing the updated dataframe to a csv file
