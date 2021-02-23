@@ -1,0 +1,45 @@
+#https://www.hackerrank.com/challenges/weighted-uniform-string/problem?h_r=next-challenge&h_v=zen
+import collections
+from collections import Counter
+def weightedUniformStrings(s, queries):
+    alpha = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 'j':10, 'k':11, 'l':12, 'm':13, 'n':14, 'o':15, 'p':16, 'q':17, 'r':18, 's':19, 't':20, 'u':21, 'v':22, 'w':23, 'x':24, 'y':25, 'z':26}
+    counts=Counter(s)
+    result=[]
+    for k, v in counts.items():
+        if v==1:
+            result.append(int(v)*alpha[k])
+        elif v > 1:
+            for i in range(1, int(v)+1):
+                result.append(i*alpha[k])
+    
+    for i in queries:   
+        if i in result:
+            print('Yes')
+        else:
+            print ('No')
+    
+
+if __name__=='__main__':
+    s=input()
+    queries=[]
+    for i in range(int(input())):
+        n=int(input())
+        queries.append(n)
+    weightedUniformStrings(s, queries)
+    
+    
+   #input
+ aaabbbbcccddd
+5
+9
+7
+8
+12
+5
+
+#output
+Yes
+No
+Yes
+Yes
+No
