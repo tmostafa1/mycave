@@ -1,0 +1,11 @@
+#code for copying specific variables (e.g., non-multicollinear variabes) from a dataframe column to a list using Pandas
+
+def extract_vars(filepath):
+    df=pd.read_csv(filepath)
+    result=[]
+    for i in range(0, 78):
+        b=df['variable'][i]
+        result.append(b)
+    print(result)
+filepath='F:\\DataFrame_2_non_multicollinear_7_threshold_with_column_head_copy.csv'
+extract_vars(filepath)
