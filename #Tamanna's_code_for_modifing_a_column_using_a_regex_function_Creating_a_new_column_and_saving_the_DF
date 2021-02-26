@@ -1,0 +1,17 @@
+#reading the entire dataset
+#Program for extracting only the web address(minus the extensions) for each URL (of the 'URL'column), 
+#and creating a new column in the dataframe with the extractions, and saving the altered dataframe
+
+import re
+df1=pd.read_csv('F:\\Readability Phase_5-added_Metadata_CSV.csv', encoding= 'latin1')
+#code for creating a column that would contain the source of each text extracted (using a regex) from the URL 
+def extract_source(url):
+    url=str(url)
+    pattern=r'http[s]?://([a-z]*\.?[a-z]+[\.a-z\-\d]*\.[a-z]{2,3})' #pattern for extracting only the webaddress from each URL minus the extension
+    match=re.search(pattern, url)
+    if match:
+        return match.group(1)
+        
+
+df1['web_source']=df1['URL'].apply(lambda x: extract_source(x)) #creating a new column in the DF after modifying an existing column
+df1.to_csv('F:\\pandas_practice_2.csv', encoding='UTF-8', index=False)
