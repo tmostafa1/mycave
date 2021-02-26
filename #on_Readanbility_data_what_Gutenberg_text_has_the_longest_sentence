@@ -1,0 +1,24 @@
+#Pandas practice based on Readability dataset
+#Question: which Gutenberg text has the longest sentence?
+# Always display all the columns
+import pandas as pd
+lis=[]
+#pd.set_option('display.line_width', 5000) 
+#pd.set_option('display.max_columns', 60) 
+#reading the data
+df=pd.read_csv('F:\\pandas_practice_2.csv')
+gutenberg=df[df['web_source']=='www.gutenberg.org'] #grabbing only the rows from gutenberg
+#gutenberg.to_csv('F:\\guten.csv', encoding='UTF-8', index=False) #for writing the changed dataframe to a csv file
+longest_sent=df['Sentence'].max() #identifying the longest sentence
+for i in range(len(gutenberg)):  
+    if df['Sentence'][i]==longest_sent: #iterating over all the rows in the 'sentence' column and checking if the length equals to the max length 
+        b=df['ID'][i] #saving the max len to a variable
+        lis.append(b) #attaching the max len to a list in case there are more than one text with the max len
+print(lis)
+        
+
+#grabbing both the gutenberg rows and the Carolyn Wells ('Author') rows#the following four lines
+#gutenberg=df['web_source']=='www.gutenberg.org'
+#author=df['Author']=='Carolyn Wells'
+#curtailed_df=df[gutenberg & author]
+#curtailed_df[:5]
