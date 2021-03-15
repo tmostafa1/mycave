@@ -1,0 +1,27 @@
+#https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign
+
+def beautifulDays(i, j, k):
+    count=0
+    for i in range(i, j+1):
+        i=str(i)
+        lis_i=[m for m in i]
+        rev_i=list(reversed(lis_i))
+        rev=int(''.join(rev_i))
+        denom=abs(int(i)-rev)
+        if denom%k==0:
+            count +=1
+    return count
+
+if __name__=='__main__':
+    num=input().split()
+    i=int(num[0])
+    j=int(num[1])
+    k=int(num[2])
+    print(beautifulDays(i, j, k))
+    
+    
+  #input
+  20 23 6
+
+#output
+2
