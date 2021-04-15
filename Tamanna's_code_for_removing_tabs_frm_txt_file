@@ -1,0 +1,13 @@
+import os, sys
+import os.path
+import csv
+def cleaning_tab(filepath):
+    with open (filepath, 'r') as file:
+        text=file.read()
+        text1=text.strip('\t') #strippping tab from the beginning or ending of the text
+        text2=text1.replace('\t', '') #replacing tab with nothing inside the text
+        fileN=open('E:\\tab_try.txt', 'w') #opening the output file
+        fileN.write(text2) #writing the text to it
+        fileN.close()
+filepath='E:\\de-AT_Intents_20210408_Cancel.txt'
+cleaning_tab(filepath)
