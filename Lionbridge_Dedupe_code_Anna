@@ -1,0 +1,34 @@
+#python3 dd_zwnj.py <file>
+#python3 dd_zwnj.py file.txt; more no_zwnj_file.txt
+#python3.9 dd_zwnj.py de_at_airlines.tsv; more no_zwnj_de_at_airlines.tsv
+#Delete invisible control characters from <file> (result in no_zwnj_<file>).
+
+import io
+import regex as re
+import sys
+import os
+import os.path
+
+path = 'F:\\OneDriveGSU\\OneDrive - Georgia State University\\Lionbridge\\FST_City_TempFile1_FST_File.txt'
+done = dict()
+with open(path, 'r', encoding="utf-8") as file:	
+	with open('E:\\try.txt', 'w', encoding="utf-8") as file_out:
+		for line in file:
+			re.sub("[ \n\t]+$", '', line)
+			cols = line.split("\t")
+			new_cols = list()
+			for col in cols:
+				words = col.split(" ")
+				new_words = list()
+				for word in words:
+					#See https://www.regular-expressions.info/unicode.html,
+					#section "Unicode categories".
+					word = re.sub("[\p{C}\p{Z}]", '', word)
+					new_words.append(word)
+				new_col=' '.join(new_words)
+				new_cols.append(new_col)
+			new_line="	".join(new_cols)
+			if not done.get(new_line):
+				done[new_line] = 1
+				file_out.write(new_line + "\n")
+		
