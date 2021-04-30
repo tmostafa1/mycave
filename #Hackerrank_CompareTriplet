@@ -1,0 +1,27 @@
+#https://www.hackerrank.com/challenges/compare-the-triplets/problem?h_r=next-challenge&h_v=zen
+def compare_triplet(a, b):
+    a_score=0
+    b_score=0
+    comb=zip(a, b)
+    for i in comb:
+        if i[0]>i[1]:
+            a_score+=1
+        elif i[1]>i[0]:
+            b_score+=1
+    lis=[]
+    lis.append(str(a_score))
+    lis.append(str(b_score))
+    res=' '.join(lis)
+    return res
+
+if __name__=='__main__':
+    a=list(map(int, input().split()))
+    b=list(map(int, input().split()))
+    print(compare_triplet(a, b))
+
+#input
+17 28 30
+99 16 8
+
+#output
+2 1
