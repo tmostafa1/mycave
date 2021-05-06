@@ -1,0 +1,7 @@
+import json
+#first read the file with the correct encoding(utf8)
+file=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Lionbridge\\Built-in-Catalog\\Chi-Hei_Build_in Intents Revised Deliverables\\Build_in Intents Revised Deliverables\\CancelIntent_Revised\\CancelIntent_Definition.json', encoding="utf8")
+data=json.load(file)# return json object as a dictionary; so 'data' is a dictionary
+for i in data["sampleUtterances"]:
+    print(i)
+file.close()
