@@ -1,7 +1,25 @@
 import json
+##code for parsing a json file
 #first read the file with the correct encoding(utf8)
 file=open('F:\\OneDriveGSU\\OneDrive - Georgia State University\\Lionbridge\\Built-in-Catalog\\Chi-Hei_Build_in Intents Revised Deliverables\\Build_in Intents Revised Deliverables\\CancelIntent_Revised\\CancelIntent_Definition.json', encoding="utf8")
 data=json.load(file)# return json object as a dictionary; so 'data' is a dictionary
 for i in data["sampleUtterances"]:
     print(i)
 file.close()
+
+##code for writing a json object and to json file
+#first, define a dictionary
+d={
+    'name': "tamanna",
+    'age': 38,
+    'child': 1,
+    'degrees': ['BA', 'MA', 'MA', 'PhD'],
+    'jobs': 
+        {'bangladesh': ['BRAC'], 
+        'USA': ['CMU', 'MSU', 'GSU']
+        }
+     } 
+json_object=json.dumps(d, indent=4) #turning the dictionary to a json string with indentation
+print(json_object)
+with open('E:\\trial_json1.json', 'w') as outfile: #writing the dictionary to a json object 
+    json.dump(d, outfile)
