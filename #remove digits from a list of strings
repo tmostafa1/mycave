@@ -1,0 +1,14 @@
+#Remove all digits from a list of strings
+import re
+def remove_digits(lis):
+    new=[]
+    for i in lis:
+        pattern=r'\d'
+        m=re.sub(pattern, '', i)
+        new.append(m)
+    return new
+lis=['alice1', 'bob2', 'cara3']
+print(remove_digits(lis))
+
+#output
+['alice', 'bob', 'cara']
