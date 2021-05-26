@@ -1,0 +1,44 @@
+#from_Hackerrank_Diagonal_Difference
+#https://www.hackerrank.com/challenges/diagonal-difference/problem
+
+#Method 1: Using Numpy
+
+def diagonal_diff(arr):
+    a=np.array(arr) #make the list of lists into a numpy array
+    b=np.diagonal(a) #list of diagonal entries
+    c=np.fliplr(a).diagonal() #list of flipped diagonal entries
+    sum_b=sum(b)
+    sum_c=sum(c)
+    res=abs(sum_b-sum_c)
+    return res
+    
+ 
+ #Method 2: Without numpy
+ def diagonalDifference(arr):
+    n=len(arr)
+    left =0
+    right=0
+    for i in range(n):
+        left += arr[i][i]
+        right += arr[i][n-i-1]
+        res=abs(left-right)
+    return res
+    
+if __name__=='__main__':
+    arr=[]
+    n=int(input())
+    for i in range(n):
+        p=list(map(int, input().split()))
+        arr.append(p)
+    print(diagonal_diff(arr))
+    
+    
+#input
+3
+11 2 4
+4 5 6
+10 8 -12
+
+#Output
+15
+    
