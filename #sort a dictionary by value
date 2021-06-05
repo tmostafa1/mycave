@@ -1,0 +1,8 @@
+def reverse_list(d):
+    new_d=dict(sorted(d.items(), key=lambda kv: kv[1]))
+    return new_d
+d={'r': 3, 't': 5, 'y': 1}
+print(reverse_list(d))
+
+#output
+{'y': 1, 'r': 3, 't': 5}
