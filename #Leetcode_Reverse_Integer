@@ -1,51 +1,38 @@
 #https://leetcode.com/problems/reverse-integer/
 
+#https://leetcode.com/problems/reverse-integer/
+
 def rev_integer(integer):
     lis=[i for i in str(integer)] #make the string (integer) to a list
-    n=len(lis)
     symbol=[]
     res_lis=[]
     if lis[0]== '-':
         symbol.append(lis[0])
         lis.pop(0) #delete the first item from the list
-        if n>1:
-            if lis[-1]!='0': #if the last item in the list is not equal to 0
-                for i in range(1, n): #not n+1 because 1 item is popped
-                    reverse_num=lis[-i]
-                    res_lis.append(reverse_num)       
-                res_lis.insert(0, symbol[0]) #insert the symbol at the beginning
-                res_str=''.join(res_lis) #convert the list back to string
-                return res_str            
-            elif lis[-1]=='0': #if the last item in the list equals 0
-                lis.pop() #deleting the last item from the list
-                for i in range(1, n-1): #n-1 because 2 elements are deleted
-                    reverse_num=lis[-i]
-                    res_lis.append(reverse_num)
-                res_lis.insert(0, symbol[0]) #insert the symbol at the beginning of the list
-                res_str=''.join(res_lis)
-                return res_str
-            elif n==1:
-                res_lis.insert(0, symbol[0]) #insert the symbol at the beginning of the list
-                res_str=''.join(lis)
-                return res_str
+    n=len(lis)
+    if n>1:
+        if lis[-1]!='0': #if the last item in the list is not equal to 0
+            for i in range(1, n+1): #not n+1 because 1 item is popped
+                reverse_num=lis[-i]
+                res_lis.append(reverse_num)            
+        elif lis[-1]=='0': #if the last item in the list equals 0
+            lis.pop() #deleting the last item from the list
+            for i in range(1, n): #n-1 because 2 elements are deleted
+                reverse_num=lis[-i]
+                res_lis.append(reverse_num)
+    elif n==1:
+        res_lis=lis
+    if symbol:
+        res_lis.insert(0, symbol[0])
+        res_str=''.join(res_lis)
+        return res_str
     else:
-        if n>1:
-            if lis[-1]!='0': #if the last item in the list is not equal to 0
-                for i in range(1, n+1):
-                    reverse_num=lis[-i]
-                    res_lis.append(reverse_num)       
-                res_str=''.join(res_lis) #convert the list back to string
-                return res_str            
-            elif lis[-1]=='0': #if the last item in the list equals 0
-                lis.pop() #deleting the last item from the list
-                for i in range(1, n): #not n+1 because 1 element is deleted
-                    reverse_num=lis[-i]
-                    res_lis.append(reverse_num)
-                res_str=''.join(res_lis) #turn the list back to string
-                return res_str
-        elif n==1:
-            res_str=''.join(lis)
-            return res_str
+        res_str=''.join(res_lis)
+        return res_str
 
-integer=0
+    
+integer=-2345
 print(rev_integer(integer))
+
+#output
+-5432
