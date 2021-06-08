@@ -1,0 +1,22 @@
+#code for reversing a list with positive numbers/positive integer
+lis=[]
+num=int(input())
+len_num=len(str(num)) #get the lenth of the number
+for i in range(1, len_num+1): #the for loop will work as many time as the length of the number
+    if num < 10: #if the number is a single digit, just append it to the list
+        lis.append(num)
+    else:        
+        mod=int(num)%10  #get the mod
+        num=num//10 #after each iteration, the number is equal to the division
+        lis.append(mod)  #append the mod to the list
+    
+lis1=[str(i) for i in lis] #turning each item of the list into a string
+num_str=''.join(lis1)        
+print(num_str)
+    
+    
+#input
+9876
+
+#output
+6789
