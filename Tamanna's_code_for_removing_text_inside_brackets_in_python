@@ -1,0 +1,8 @@
+#How to remove text inside brackets in Python? the brackets will be there but not the text inside
+path='D:\practice1.txt'
+with open (path, 'r') as file:
+	with open('D:\changed_practice1.txt', 'w') as outfile:
+		text=file.read() #read the data in the file
+		text=re.sub(r'(?<=\(|\[)\w+(?=\)|\])','', text) 
+		outfile.write(text)
+		outfile.close()
