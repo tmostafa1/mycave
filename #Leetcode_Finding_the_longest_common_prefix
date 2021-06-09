@@ -1,0 +1,35 @@
+#finding the longest common prefix
+lis=["doug","doull","doun"]
+length=[]
+#first find out the length of the shortest item in the input list
+for elem in lis:
+        long=len(elem)
+        length.append(long)
+sor=sorted(length)
+shortest=sor[0]
+common=[]
+res=[]
+#for the length of the shortest item, find if there are common letters for each item in the input list
+for i in range(shortest): 
+    for j in range(len(lis)):
+        common.append(lis[j][i])
+#make a dictionary to see if the frequency of a letter equals to the length of the list, 
+#which means the letter appears in every item
+dic={}
+for i in common:
+    if not dic.get(i):
+        dic[i]=1
+    else:
+        dic[i]+=1
+
+for k, v in dic.items():
+    if v==len(lis): #check if any letter appears in every item in the input list
+        res.append(k)
+if res:
+    res_str=''.join(res)    
+    print(res_str)
+else:
+    print('none')
+        
+#output
+dou
