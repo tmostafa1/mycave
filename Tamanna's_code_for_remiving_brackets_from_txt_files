@@ -1,0 +1,8 @@
+#how to remove brackets from text files in python
+path='D:\practice1.txt'
+with open (path, 'r') as file: #open the file to read
+	with open('D:\changed_practice1.txt', 'w') as outfile: #open the file to write
+		text=file.read() #read the data in the file #read the daa
+		text=re.sub(r'[\(\{\[\]\}\)]+','', text) #replace the brackets with empty strings
+		outfile.write(text) #write the changed text to the output file
+		outfile.close()
