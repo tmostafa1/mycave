@@ -1,0 +1,50 @@
+## I have an input csv file, and one of the columns has web text that includes HTML tags. 
+#Can you write a function that adds a new column to the CSV that contains the web text with the HTML tags removed? 
+#this solution uses pandas
+import re
+import pandas as pd
+
+#defining a function for removing html tags from text
+def remove_html(text):
+    text=re.sub(r'<.+?>', '', text) #add '?' to make the function non-greedy
+    return text
+
+def add_HtmlFree_column(filepath):
+    df1=pd.read_csv(filepath) #read the data
+    for col_head, col_value in df1.iteritems(): #iterate through each column values to find out which column has html tags
+        text=''.join(col_value) #make the list a string    
+        if '<' and '>' in text: #find out which column has html tags
+            tagged_column=col_head #assign that column a name
+    #create a new column and apply the remove_html function to each value of the column to get rid of the html tags
+    df1['html_removed']=df1[tagged_column].apply(lambda x: remove_html(x)) 
+    df1.to_csv('D:\\practice2_result.csv', encoding='UTF-8', index=False) #write the new dataframe as a csv
+
+filepath='D:\\practice2_.csv'
+add_HtmlFree_column(filepath)
+
+
+#ANOTHER SOLUTION WITHOUT USING PANDAS  
+# I have an input csv file, and one of the columns has web text that includes HTML tags. 
+#Can you write a function that adds a new column to the CSV that contains the web text with the HTML tags removed? 
+#this solution uses csv only, NO pandas
+
+import csv
+
+def remove_html_tag(file):
+    modified_rows=[] #create an empty list for saving the changed rows
+    with open(file, 'r') as infile:
+        with open('D:\\practice2_csv_res.csv', 'w', newline='') as outfile:
+            data=csv.reader(infile)#read the data in the csv file
+            header=next(data) #separating out the column headers
+            header.append('cleaned_text')#create a new column header
+            
+            for text in data: #iterating over each row value
+                if '<' and '>' in text[1]: #if the row contains html marks
+                    changed_text=re.sub(r'<.+?>', '', text[1]) #remove those marks with empty strings
+                    text.append(changed_text) #append the changed text to a list (as a list of lists)
+                    modified_rows.append(text) #save the new rows (each a list) to another list
+            file_writer=csv.writer(outfile) #create a writer object
+            file_writer.writerow(header) #write the column headers
+            file_writer.writerows(modified_rows) #write the rows (list of lists)
+file='D:\\practice2_.csv'
+remove_html_tag(file)
