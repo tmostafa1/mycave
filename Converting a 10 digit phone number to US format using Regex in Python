@@ -1,0 +1,12 @@
+#Converting a 10 digit phone number to US format using Regex in Python
+import re
+def covert_to_US_number(number):
+    #match=re.findall(r'\d{3}[\s\-]?\d{3}[\s\-]?\d{4}', number)
+    converted=re.sub(r'(?<=\s)(\d{3})-', r'(\1) ', number)
+    return converted
+    
+number='Call geek 321-963-0612'
+print(covert_to_US_number(number))
+
+#output
+Call geek (321) 963-0612
