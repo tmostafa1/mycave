@@ -1,0 +1,20 @@
+#reading data from txt file,dedupe the data, and writing the deduped data to a new txt file
+def dedupe_txt(filepath):
+    lines=[]    
+    with open(filepath, 'r') as data:
+        with open('D:\\deduped_en-ZA.txt', 'w') as outfile:
+            text=data.readlines()#read the lines of the file as a list of lines
+            for line in text:
+                line=line.strip() #strip each line of line break
+                lines.append(line)#save the lines to a list
+            dic={}
+            for i in lines: 
+                if not dic.get(i): #if each item in the list is already not a key in the dictionary
+                    dic[i]=1 #assign the value of that key to 1
+            for k, v in dic.items(): #for each key:value pair in the dictionary
+                outfile.write(k+'\n')#  write only the keys (each in a new line) to the txt file 
+            outfile.close() #close the file
+            
+filepath='D:\\fst_mastersource_en-ZA_airport.txt'
+print(dedupe_txt(filepath))
+            
