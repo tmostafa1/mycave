@@ -1,0 +1,11 @@
+##Code for palindrome
+def palindrome(text):
+    end=len(text)
+    for i in range(0, end//2):
+        if text[i]!=text[-i-1]:
+            return 'no'
+    return 'yes'
+             
+        
+text='redivider'
+print(palindrome(text))
