@@ -1,0 +1,24 @@
+#reading data from csv file,dedupe the data, and writing the deduped data to a new csv file
+import csv
+def dedupe_csv(filepath):
+    deduped_values=[]
+    orig_strings=[]
+    with open(filepath, 'r') as data:
+        with open ('D:\\deduped_trial1_res.csv', 'w', newline='') as outfile:
+            text=csv.reader(data) #read the data
+            header=next(text) #identify the header
+            dic={}
+            for i in text:  
+                str_form=''.join(i)  #turning each item in the data from list to string
+                orig_strings.append(str_form) #appending those strings to a list
+            for item in orig_strings: #now make a dictionary out of the list values (whcih are strings)
+                if not dic.get(item): #if a key is already not in the dictionary
+                    dic[item]=1 #add that key to dictionary and assign the value of 1
+            for k, v in dic.items():
+                deduped_values.append([k]) 
+            writer=csv.writer(outfile) #create a writer object
+            writer.writerow(header) #write the column
+            writer.writerows(deduped_values) #write the rows
+        
+filepath='D:\\dedupe_trial1.csv'
+dedupe_csv(filepath)    
