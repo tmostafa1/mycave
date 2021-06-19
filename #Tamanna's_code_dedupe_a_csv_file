@@ -4,12 +4,12 @@ def dedupe_csv(filepath):
     deduped_values=[]
     orig_strings=[]
     with open(filepath, 'r') as data:
-        with open ('D:\\deduped_trial1_res.csv', 'w', newline='') as outfile:
+        with open ('D:\\Street_names_extracted_data\\extracted_values_streetnames2_Deduped.csv', 'w', encoding='utf-8', newline='') as outfile:
             text=csv.reader(data) #read the data
             header=next(text) #identify the header
             dic={}
             for i in text:  
-                str_form=''.join(i)  #turning each item in the data from list to string
+                str_form=','.join(i)  #turning each item in 'text' from list to string with comma as the delimiter
                 orig_strings.append(str_form) #appending those strings to a list
             for item in orig_strings: #now make a dictionary out of the list values (whcih are strings)
                 if not dic.get(item): #if a key is already not in the dictionary
@@ -20,5 +20,5 @@ def dedupe_csv(filepath):
             writer.writerow(header) #write the column
             writer.writerows(deduped_values) #write the rows
         
-filepath='D:\\dedupe_trial1.csv'
+filepath='D:\\Street_names_extracted_data\\extracted_values_streetnames2.csv'
 dedupe_csv(filepath)    
