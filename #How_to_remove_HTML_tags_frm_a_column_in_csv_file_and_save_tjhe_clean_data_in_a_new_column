@@ -33,16 +33,17 @@ import csv
 def remove_html_tag(file):
     modified_rows=[] #create an empty list for saving the changed rows
     with open(file, 'r') as infile:
-        with open('D:\\practice2_csv_res.csv', 'w', newline='') as outfile:
+        with open('D:\\practice2_csv_res_june20.csv', 'w', newline='') as outfile:
             data=csv.reader(infile)#read the data in the csv file
             header=next(data) #separating out the column headers
             header.append('cleaned_text')#create a new column header
             
-            for text in data: #iterating over each row value
-                if '<' and '>' in text[1]: #if the row contains html marks
-                    changed_text=re.sub(r'<.+?>', '', text[1]) #remove those marks with empty strings
-                    text.append(changed_text) #append the changed text to a list (as a list of lists)
-                    modified_rows.append(text) #save the new rows (each a list) to another list
+            for text in data: #iterating over each row (a list)
+                for elem in text: #iterating over each item in each row(list)               
+                    if '<' and '>' in elem: #if the row contains html marks
+                        changed_text=re.sub(r'<.+?>', '', elem) #remove those marks with empty strings
+                        text.append(changed_text) #append the changed text to the row list 
+                        modified_rows.append(text) #save the new rows (each a list) to another list
             file_writer=csv.writer(outfile) #create a writer object
             file_writer.writerow(header) #write the column headers
             file_writer.writerows(modified_rows) #write the rows (list of lists)
