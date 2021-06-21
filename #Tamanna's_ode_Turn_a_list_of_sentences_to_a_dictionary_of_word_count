@@ -2,25 +2,22 @@
 #Can you write a function that would take that list of sentences and 
 #return a dictionary with word counts for all the words in the list of sentences?
 
-def word_count(lis_input):
-    lis=[]
-    #first, get rid of punctuation marks from the sentences
-    for sent in lis_input:
-        sent=re.sub(r'\W', ' ', sent) #remove nonword characters from each sentence
-        lis.append(sent) #append the clean sentences to a list      
-    #tokenize the each sentence in the list
-    text=' '.join(lis) #first turn the list to a string
-    my_list=text.lower().split() #lowercase the string and turn that string to a list of words, by splitting it to white space        
-    my_dict={} #create an empty dictionary
-    #turn that list to a dictionary
-    for word in my_list: #for every word in the list
-        if not my_dict.get(word): #if that word is not already a key in the dictionary
-            my_dict[word]=1 #assign the value of 1 to the key
+import re
+def sent_to_dic(lis):
+    text=' '.join(lis)  #turn the list to a string 
+    text=re.sub(r'[\.\,\=\-\_\'\"\?\!\&\#]+', '', text) #get rid of the punctuation marks
+    text=text.lower() #turn to lower case
+    text=re.split(r'\W+', text) #tokenize the entire text    
+    dic={} #create an empty dic
+    for word in text:
+        if not dic.get(word):
+            dic[word]=1
         else:
-            my_dict[word]+=1 #else, keep increasing the value by 1
-    return my_dict #return the dictionary
+            dic[word]+=1
+    return dic
+    
 lis=['Sometimes, it becomes tough to remove brackets from the text', 'Hence, python can do this for us sometimes', 'In python, we can remove brackets with the help of regular expressions']
-print(word_count(lis)) 
+print(sent_to_dic(lis))     
 
 #output
 {'sometimes': 2, 'it': 1, 'becomes': 1, 'tough': 1, 'to': 1, 'remove': 2, 'brackets': 2, 'from': 1, 'the': 2, 'text': 1, 'hence': 1,
