@@ -9,8 +9,9 @@ def anagram_of_palin(string):
             dic[i]+=1 #else increment the value
     if len(string)%2==0: #if the length of string is even
         for k, v in dic.items():
-            if v%2==0: #if each value is even
-                return 'yes'
+            if v%2 !=0: #if any value is NOT even
+                return 'no'        
+        return 'yes' #else return yes
     elif len(string)%2 !=0: #if the length of string is not even
         for k, v in dic.items():
             if v%2 !=0: #if the value is not even
@@ -20,6 +21,7 @@ def anagram_of_palin(string):
         else:
             return 'No'
             
+
 string='vicic'    
 print(anagram_of_palin(string))
 
