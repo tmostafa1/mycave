@@ -1,0 +1,27 @@
+#Write a function which takes a string and determines whether it is an anagram of a palindrome
+def anagram_of_palin(string):
+    dic={} #make an empty dictionary
+    count=0
+    for i in string: #for each item in the string
+        if not dic.get(i): #if the item is already not a key in the dictionary
+            dic[i]=1 #assign the value 1 to the key
+        else:
+            dic[i]+=1 #else increment the value
+    if len(string)%2==0: #if the length of string is even
+        for k, v in dic.items():
+            if v%2==0: #if each value is even
+                return 'yes'
+    elif len(string)%2 !=0: #if the length of string is not even
+        for k, v in dic.items():
+            if v%2 !=0: #if the value is not even
+                count+=1 #add it upto count
+        if count==1: #if only one value is uneven
+            return 'yes'
+        else:
+            return 'No'
+            
+string='vicic'    
+print(anagram_of_palin(string))
+
+#output
+'yes'
