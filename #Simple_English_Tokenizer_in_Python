@@ -1,0 +1,21 @@
+# write a simple English tokenizer in Python (with list of sentences as input)
+import re
+def tokenizer(lis_of_sent):
+    text=' '.join(lis_of_sent) #first turn the list to a string of text
+    remove_punct=re.sub(r'[\+\,\.\#\@\!\?\'\"\-\_\%\$\/\(\)\{\}\[\]\&\:]+', '', text.lower()) #remove punctuations
+    split_text=re.sub(r'\W', ',', remove_punct) #split the text at white space
+    return split_text
+
+lis=['but here are some of them that I can remember:', '-Tell me about a time when you gave a simple solution to a complex problem.', 
+'- Tell me about a time when you had to work with limited time or resources.', 
+'-Tell me about a time you had too much on your plate to deal with and how you handled getting everything done.', 
+'-Tell me about a time when you couldn''t meet your own expectations on a project.', 
+'There was only one coding question, which is writing a simple English tokenizer in Python.']
+
+print(tokenizer(lis))   
+
+#output
+but,here,are,some,of,them,that,i,can,remember,tell,me,about,a,time,when,you,gave,a,simple,solution,to,a,complex,problem,,tell,me,about,a,
+time,when,you,had,to,work,with,limited,time,or,resources,tell,me,about,a,time,you,had,too,much,on,your,plate,to,deal,with,and,how,you,handled,
+getting,everything,done,tell,me,about,a,time,when,you,couldnt,meet,your,own,expectations,on,a,project,there,was,only,one,coding,question,which,
+is,writing,a,simple,english,tokenizer,in,python
