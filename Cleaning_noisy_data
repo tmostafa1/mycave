@@ -1,0 +1,24 @@
+#cleaning noisy data
+import pandas as pd
+import nltk
+from nltk.stem import PorterStemmer
+porter_stem=PorterStemmer()
+
+def noise_removal(string): #finction for removing noise from data
+    text1=re.sub(r'\<.+?\>', '', string)
+    text2=re.sub(r'[\_\-\.\,\/\\\'\"\?!\@\#\%\&\^\<\>\d]+', '', text1)
+    return text2
+    
+raw_words=["..trouble..","trouble<","trouble!","<a>trouble</a>",'1.trouble'] #provide the raw words
+stemmed_word=[porter_stem.stem(word=word) for word in raw_words]  #include the stemmed words
+df=pd.DataFrame({'raw_word': raw_words, 'stemmed': stemmed_word}) #create the data frame
+df['cleaned']=df['raw_word'].apply(lambda x: noise_removal(x)) #apply the function of removing noise to the raw_words column and create a new column(cleaned) with the clean data
+df #the new dataframe
+
+#output
+   raw_word	stemmed	   cleaned
+0	..trouble..	..trouble..	trouble
+1	trouble<	trouble<	trouble
+2	trouble!	trouble!	trouble
+3	<a>trouble</a>	<a>trouble</a>	trouble
+4	1.trouble	1.troubl	trouble
