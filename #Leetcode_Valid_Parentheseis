@@ -1,0 +1,25 @@
+#Valid parenthesis
+#Leetcode https://leetcode.com/problems/valid-parentheses/
+
+def valid_parenthesis(string):
+    opening=['(', '{', '['] #first store the opening and closing parenthesis
+    closing=[')', '}', ']']
+    stack=[]
+    for i in string:
+        if i in opening: #if i is an opening parenthesis
+            stack.append(i) #add it to the list
+        else:
+            pos=closing.index(i) #get the index value of the closing parenthesis
+            if (len(stack)>0 and opening[pos]==stack[len(stack)-1]): #there are already items in the stack and if the correspoding
+                                                                  # value in the opening list matches with that in the stack
+                stack.pop() #delete that item from stack
+       
+    if len(stack)==0:
+        return 'True'
+    else:
+        return 'False'
+string="{[]}"
+print(valid_parenthesis(string))
+
+#output
+True
