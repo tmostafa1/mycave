@@ -23,7 +23,7 @@ with open(path, 'r', encoding="utf-8") as file:
 				for word in words:
 					#See https://www.regular-expressions.info/unicode.html,
 					#section "Unicode categories".
-					word = re.sub("[\p{C}\p{Z}]", '', word)
+					word = re.sub("[\p{C}\p{Z}]", '', word)  #\p{C} for invisible control character; \p{Z} for invisible separator
 					new_words.append(word)
 				new_col=' '.join(new_words)
 				new_cols.append(new_col)
