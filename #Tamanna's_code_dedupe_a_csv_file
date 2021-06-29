@@ -1,24 +1,30 @@
 #reading data from csv file,dedupe the data, and writing the deduped data to a new csv file
+##the code for deduping a csv file with multiple columns
+##this code is full-proof
 import csv
-def dedupe_csv(filepath):
-    deduped_values=[]
-    orig_strings=[]
-    with open(filepath, 'r') as data:
-        with open ('D:\\Street_names_extracted_data\\extracted_values_streetnames2_Deduped.csv', 'w', encoding='utf-8', newline='') as outfile:
+def dedupe(filename):
+    with open(filename, 'r') as data:
+        with open('D:\\trial_dedupe1.csv', 'w', newline='') as outfile:
             text=csv.reader(data) #read the data
             header=next(text) #identify the header
             dic={}
-            for i in text:  
-                str_form=','.join(i)  #turning each item in 'text' from list to string with comma as the delimiter
-                orig_strings.append(str_form) #appending those strings to a list
-            for item in orig_strings: #now make a dictionary out of the list values (whcih are strings)
-                if not dic.get(item): #if a key is already not in the dictionary
-                    dic[item]=1 #add that key to dictionary and assign the value of 1
-            for k, v in dic.items():
-                deduped_values.append([k]) 
-            writer=csv.writer(outfile) #create a writer object
-            writer.writerow(header) #write the column
-            writer.writerows(deduped_values) #write the rows
+            list_of_string=[]
+            for i in text: #text is a list of lists; i is a list                
+                str_value=','.join(i)
+                list_of_string.append(str_value) #append the string values to the list
+            
+            for item in list_of_string:
+                if not dic.get(item): #if not the item is a key in dictionary
+                    dic[item]=1 #assign the value 1 to the key item
+            rows=[] #an empty list for storing rows
+            for k, v in dic.items(): #in the dictionary, each key is a row, and each key is a string at this stage; need to convert it to a list of strings
+                k=k.split(',') #split the elements of k on commas because k needs to be a list of multiple strings where each string represents a column value
+                final=[str(j) for j in k] #k is a list and so make each element of k a separate string
+                rows.append(final) # append each unique key (list) to another list
         
-filepath='D:\\Street_names_extracted_data\\extracted_values_streetnames2.csv'
-dedupe_csv(filepath)    
+            writer=csv.writer(outfile) #create a writer object
+            writer.writerow(header) #write the column header
+            writer.writerows(rows) #write the rows
+filename='D:\\Street_names_extracted_data\\extracted_values_streetnames3_Revised.csv'
+dedupe(filename)
+            
