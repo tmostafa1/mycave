@@ -1,0 +1,13 @@
+#Program to put angle brackets around all integers in a text, changing e.g., the 35 boxes to the <35> boxes
+#this program will work if there are multiple integers in a text
+def add_angle(text):
+    digit=re.findall(r'\d+', text)
+    for i in range(len(digit)):
+        text=re.sub(digit[i], ' <'+digit[i]+'> ',  text) #use re.sub to change the digit with the desired pattern
+    return text
+    
+text='I gave you $100 and you gave me 50 notebooks'
+print(add_angle(text))    
+
+#output
+I gave you $ <100>  and you gave me  <50>  notebooks
