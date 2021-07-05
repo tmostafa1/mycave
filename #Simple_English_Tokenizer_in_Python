@@ -19,3 +19,23 @@ but,here,are,some,of,them,that,i,can,remember,tell,me,about,a,time,when,you,gave
 time,when,you,had,to,work,with,limited,time,or,resources,tell,me,about,a,time,you,had,too,much,on,your,plate,to,deal,with,and,how,you,handled,
 getting,everything,done,tell,me,about,a,time,when,you,couldnt,meet,your,own,expectations,on,a,project,there,was,only,one,coding,question,which,
 is,writing,a,simple,english,tokenizer,in,python
+
+#An updated English tokenizer that would handle word internal periods and commas
+
+import re
+
+def tokenizer(text):
+    #handle commas
+    #pattern=r'\d+\,\d+'
+    text=re.sub(r'\. ', ' ', text) #removing only those periods that are followed by a white space
+    text=re.sub(r'\.$', ' ', text) #removing periods at sentence boundary
+    #text=re.sub(r'(?<=[0-9])\,(?=[0-9])', '\,', text) ##
+    text=re.sub(r'\, ', ' ', text) #removing those commas followed by a white space
+    text=re.sub(r'[\!\?\-\:]+', '', text) #removing other punctuations
+    my_text=text.split() #splitting the text at white space
+    return my_text
+text='I have a Ph.D., but my husband doesn''t have a Ph.D. Both me and my husband work at google.com. My husband earns $4,500 a month.'
+print(tokenizer(text))
+
+#output
+['I', 'have', 'a', 'Ph.D.', 'but', 'my', 'husband', 'doesnt', 'have', 'a', 'Ph.D', 'Both', 'me', 'and', 'my', 'husband', 'work', 'at', 'google.com', 'My', 'husband', 'earns', '$4,500', 'a', 'month']
