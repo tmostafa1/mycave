@@ -1,0 +1,31 @@
+#Leetcode: Group Anagram
+#https://leetcode.com/problems/group-anagrams/
+#Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+#An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+from collections import defaultdict
+def group_anagrams(lis):
+    sorted_elem=[]
+    for i in range(len(lis)):
+        elem1=sorted(lis[i]) #sort each element of the list
+        elem2=''.join(elem1) #after sorting, the string became a list. so turningthe list back to string
+        sorted_elem.append((i, elem2)) #attach the sorted elements to a new list, also saving their index position
+    #sorted_new=sorted(sorted_elem, key=lambda x: x[1]) #sort the new list by the second element; not necessary here
+    dic=defaultdict(list) #create a defaultdic that would store values to a list
+    result=[] #create a new list
+    for i in sorted_elem:
+        dic[i[1]].append(i[0]) #in the dictionary, key is the word (in total, 3 unique words), and value is the index position
+        
+    for k, v in dic.items():
+        result.append(v[:]) #append only the values (index positions) to an empty list; it'll be a list of 3 lists
+    
+    for elem in result: #for each list in result list
+        for ind, i in enumerate(elem): #for index, item in elem lists
+            elem[ind]=lis[i] #each value of elem would change to the corresponding value in lis(with 'i' as index values of lis)
+    return result
+   
+   
+lis=["eat","tea","tan","ate","nat","bat"]
+print(group_anagrams(lis))
+
+#output
+[['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
