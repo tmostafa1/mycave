@@ -1,0 +1,35 @@
+#https://leetcode.com/problems/valid-anagram/
+#Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+def check_anagram(s, t):
+    lis_s=[i for i in s] #make a list of the string
+    lis_t=[j for j in t]#make a list of the string
+    dic_s={}
+    dic_t={}
+    for i in lis_s: #for each element in the list s
+        if not dic_s.get(i): #if the element is not already a key in the dictionary
+            dic_s[i]=1 #set the value to the key as 1
+    #do the same for lis_t
+    for j in lis_t:
+        if not dic_t.get(j):
+            dic_t[j]=1
+    key_s=[] #create empty lists for saving the keys from the two dictionaries
+    key_t=[] 
+    for k, v in dic_s.items():
+        key_s.append(k) #append the keys to the empty list for s
+    for k, v in dic_t.items():
+        key_t.append(k) #append the keys to the empty list for t
+    sort_key_s=sorted(key_s) #sort both the lists
+    sort_key_t=sorted(key_t)
+    if sort_key_s== sort_key_t:
+        return 'true'
+    else:
+        return 'false'
+#s = "anagram" 
+#t = "nagaram"
+s="rat"
+t='car'
+print(check_anagram(s, t))
+
+#output
+false
+        
