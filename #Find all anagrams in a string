@@ -1,0 +1,22 @@
+#https://leetcode.com/problems/find-all-anagrams-in-a-string/
+#Find all anagrams in a string
+#Given two strings s and p, return an array of all the start indices of p's anagrams in s. 
+#You may return the answer in any order.
+
+def anagram_in_string(string, p):
+    sort_p=sorted(p)
+    measure=len(p)
+    result=[]
+    for i in range(len(string)+measure): #for each item in the string plus the length of p
+        a=sorted(string[i:i+measure]) #assign a variable to every nth span (n=length of p) (sorted) equals to sorted p
+        if a==sort_p: #if the above value equals sorted p
+            result.append(i) #save the initiaL index value to an empty list
+    return result
+#string="abab"
+#p="ab"
+string="cbaebabacd"
+p="abc"
+print(anagram_in_string(string, p))
+
+#output
+[0, 6]
