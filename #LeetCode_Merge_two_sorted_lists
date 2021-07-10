@@ -1,0 +1,35 @@
+#https://leetcode.com/problems/merge-two-sorted-lists/
+#merge two sorted lists
+
+def merge_sorted_lists(a, b):
+    res=[]
+    i=0
+    j=0
+    while i < len(a) and j <len(b):        #use while loop because the index of the two lists are not updating uniformly
+        if a[i]==b[j]:
+            res.append(a[i])
+            res.append(b[j])
+            i=i+1
+            j=j+1
+        elif a[i]<b[j]:
+            res.append(a[i])
+            i=i+1
+        else:
+            res.append(b[j])
+            j=j+1   
+    #after this point wither a of b will have some items not attached to the result list. the following block is to append those
+    while i<len(a):
+        res.append(a[i])       
+        i=i+1
+    while j < len(b):
+        res.append(b[j])
+        j=j+1                  
+    return res
+a=[1, 2, 4]
+b=[0, 5, 7]
+#a=[1]
+#b=[0]
+print(merge_sorted_lists(a, b))
+
+#output
+[0, 1, 2, 4, 5, 7]
