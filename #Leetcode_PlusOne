@@ -1,0 +1,22 @@
+#Leetcode_PlusOne
+#https://leetcode.com/problems/plus-one/
+#Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer.
+def plus_one(array):
+    string='' #create an empty string
+    for i in array:
+        i=str(i) #turn each item in the list to string
+        string+=i #add each item to the string
+    str_to_int=int(string) #turn the string to integer
+    one_added=str_to_int+1  #increment the integer to 1
+    one_added=str(one_added) #turn the integer to a string
+    final_lis=[int(i) for i in one_added] #turn the string to a list
+    return final_lis
+#array=[1,2,3]
+array=[4,3,2,1]
+
+print(plus_one(array))
+
+#output
+[4, 3, 2, 2]
+
+    
